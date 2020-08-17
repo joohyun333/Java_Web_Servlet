@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 변수와 범위</title>
+	<script type="text/javascript">
+		 
+		//# 글로벌 변수와 지역변수
+		/*var scope = '글로벌변수';
+		function getValue(){
+			var scope ='지역변수';
+			return scope;
+		}
+		document.writeln('1> ' + getValue());
+		document.writeln('2> ' + scope);
+		*/
+
+		//# var명령어를 사용하지 않으면 글로벌 변수 취급
+		/*scope = '글로벌변수';
+		function getValue(){
+			scope ='지역변수';
+			return scope;
+		}
+		document.writeln('1> ' + getValue());
+		document.writeln('2> ' + scope);
+		*/
+
+		//# 지역변수는 반드시 var 명령어 사용
+		/*scope = '글로벌변수';
+		function getValue(){
+			var scope ='지역변수';
+			return scope;
+		}
+		document.writeln('1> ' + getValue());
+		document.writeln('2> ' + scope);
+		*/
+
+		//# 지역변수는 함수의 맨 앞에 선언하자
+		// 자바스크립트의 [지역변수는 함수 전체에서 유효]하기에 이미 지역변수가 유효하지만
+		// 값이 확이 없기에 undefined인 것임
+		/*scope = '글로벌변수';
+		function getValue(){
+			document.writeln('0> ' + scope);
+			var scope ='지역변수';
+			return scope;
+		}
+		document.writeln('1> ' + getValue());
+		document.writeln('2> ' + scope);
+		*/
+
+		//# 지역변수는 함수블록에서만 유효하다
+// 		if(true){
+// 			var i = 100;
+// 		}
+// 		document.writeln('i = ' + i);
+// 		  function test(){
+// 			   var j = 10;
+// 		  }
+//			  test();
+// 		  document.writeln('j = ' + j);
+		
+		
+// 		for( var j=0; j < 3; j++){ }
+// 		for( var j=0; j < 3; j++){ }
+//							// for는 함수가 아니므로 var j는 전역변수이지만 두번 이상의 var  j 선언이 된다.
+// 		document.writeln('j=' + j);
+//######  전역변수로 잡히면서 충돌안남
+// 			var j=0;
+// 			var j=1;
+// 			document.writeln('j=' + j);
+
+
+	</script>
+</head>
+
+<body>
+
+  
+ </body>
+</html>

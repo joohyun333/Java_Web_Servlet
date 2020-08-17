@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트의 자료형</title>
+<script type="text/javascript">
+
+// 1. 자바스크립트는 데이터타입에 관대하다
+var   byensu = "문자열";
+document.writeln( "변수의 값 : "+byensu + "<br/>" );
+
+byensu = 1000;	    // 문자열변수 byensu에 숫자값 대입 가능
+document.writeln( "변수의 값 : "+byensu + "<br/>" );
+
+		// [ 추가 ] 기본 자료형이 자동으로 참조형으로(?) 점(.) 연산자 사용 가능
+		document.writeln("참조형처럼? "+ byensu.toString() + "<br/>");
+		
+
+// 2. 리터럴
+var   arr = [ '안녕', 'Hello', 'Hola', '곤니찌와' ];
+document.writeln("배열의 요소 : " +  arr[1] + "<br/>" );
+
+var   arr2 = [ '안녕', [ 'Hello', 'Hola' ], '곤니찌와' ];
+document.writeln("배열의 요소 : " +  arr2[1][0] + "<br/>" );
+
+var  obj = { x : '안녕',  y : 'Hello' ,  z : '곤니찌와' };
+document.writeln("객체의 프로퍼티 : " +  obj.y + "<br/>" );
+document.writeln("객체의 프로퍼티 : " +  obj['y'] + "<br/>" );
+
+var  x ;
+document.writeln ( x + "<br/>");	// undifined
+document.writeln( obj.b + "<br/>");// undifined
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

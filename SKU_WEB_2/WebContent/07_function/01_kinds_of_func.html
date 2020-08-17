@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>자바스크립트 함수 만들기</title>
+	<script>
+		// 1. 각 세 함수를 만들고 alert으로 확인
+		// 2. 각각의 글자의 색 변경
+
+		function first(){
+			var txt = document.getElementById("first");
+			txt.style.backgroundColor = 'red';
+			txt.style.color = 'yellow';
+		}
+
+		var second = new Function("var txt = document.getElementById('second'); txt.style.backgroundColor = '#aabebe';			txt.style.color = '#dd3389';");
+	
+		var third = function(){
+			var txt = document.getElementById("third");
+			txt.style.backgroundColor = '#cccc44';
+			txt.style.color = '#332211';
+		}
+
+	</script>
+</head>
+
+<body>
+	<p> <span id="first"> function 명령 </span>
+		<input type="button" value="확인" onclick="javascript:first()"/>
+	</p>
+	<p> <span id="second"> Function 생성자 </span>
+		<input type="button" value="확인" onclick="javascript:second()"/>
+	</p>
+	<p> <span id="third"> 함수 리터럴 </span>
+		<input type="button" value="확인" onclick="javascript:third()"/>
+	</p>
+</body>
+</html>

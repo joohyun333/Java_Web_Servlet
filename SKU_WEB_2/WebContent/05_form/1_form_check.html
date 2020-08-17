@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> 폼 예제 1 </title>
+<script type="text/javascript" src="./js/formCheck.js">
+</script>
+<!-- 리턴값이 false가 되면 이벤트 동작을 하지 않는다.
+		 즉, checkFields()에서 false가 리턴되면 submit 동작이 일어나지 않는다.
+		 
+ -->
+</head>
+<body>
+아래의 폼을 완성하시렵니까<br><br>
+<form name="frm" method="post" action="something.jsp" onsubmit="return checkFields()">
+	이름 <input type="text" name="name" size="30"><br><br>
+	전화번호 <input type="text" name="tel" size="30"><br><br>
+	이메일 <input type="text" name="email" size="50"><br><br>
+	
+	성별 <input type="radio" name="gender" value="남정네" checked> 남정네
+		<input type="radio" name="gender" value="여인네"> 여인네 <br><br>
+		
+		
+	<input type="submit" value="눌려봐">
+</form>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- namespace의 이름은 본인이 설정하면 된다. -->
+<mapper namespace="com.example.goods.goodsDao"> 
+
+ <!-- 물품 목록-->
+ <select id="goodsList" resultType="com.example.domain.GoodsDomain">
+   select
+    goodsNo,goodsName,goodsColor,manufacturer,brandName,goodsPrice,size,totalAmount
+  from
+     goods
+ </select>
+ 
+ 
+ <!-- 물품 등록 -->
+ <insert id="goodsRegister" parameterType="com.example.domain.GoodsDomain">
+ insert into goods(goodsNo,goodsName,goodsColor,manufacturer,brandName,goodsPrice,size,totalAmount)
+       values(#{goodsNo},#{goodsName},#{goodsColor},#{manufacturer},#{brandName},#{goodsPrice},#{size},#{totalAmount})
+ </insert>
+ 
+ 
+ <!-- 물품 수정 -->
+ <update id="goodsModify" parameterType="com.example.domain.GoodsDomain">
+ UPDATE goods
+	SET
+	goodsName = #{goodsName},
+	goodsColor = #{goodsColor},
+	manufacturer = #{manufacturer},
+	goodsPrice = #{goodsPrice},
+	size = #{size},
+	totalAmount = #{totalAmount}
+	WHERE goodsNo = #{goodsNo}
+ </update>
+ 
+ 
+ <!-- 물품 삭제 -->
+ <delete id="goodsDelete" parameterType="String">
+ delete 
+    from
+       goods
+ where
+       goodsNo=#{goodsNo}
+ </delete>
+ 
+ 
+ <!-- totalAmount에 amount 더하기 -->
+<update id="inputTotalAmount">
+	update
+		tradegoods as tg, goods as g
+	set
+		g.totalAmount = g.totalAmount + tg.amount
+	where
+		classification="입고" or classification="출고반품"  and g.goodsNo=tg.goodsNo and dealNumber=(Select max(dealNumber) from tradegoods)
+</update>
+
+
+<!-- totalAmount에서 amount 빼기 -->
+<update id="outputTotalAmount">
+	update
+		tradegoods as tg, goods as g
+	set
+		g.totalAmount = g.totalAmount - tg.amount
+	where
+		classification="출고" or classification="입고반품" and g.goodsNo=tg.goodsNo and dealNumber=(Select max(dealNumber) from tradegoods)
+</update>
+
+<!-- 해당물품번호의  물품명,색상,사이즈구하기-->
+<select id="goodsInfoIdx" parameterType="String" resultType="com.example.domain.GoodsDomain">
+select
+   goodsNo,goodsName,goodsColor,manufacturer,brandName,goodsPrice,size,totalAmount
+ from
+   goods
+where
+   goodsNo=#{goodsNo}
+
+</select>
+<!-- 해당물품번호의  물품명,색상,사이즈구하기-->
+<select id="goodsNoImfo" parameterType="String" resultType="com.example.domain.GoodsDomain">
+select
+   goodsName,goodsColor,size
+from
+   goods
+where
+   goodsNo=#{goodsNo}
+
+</select>
+</mapper>
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> RegExp 객체</title>
+<script type="text/javascript">
+var p = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w-.\/?%&=]*)?/gi;
+//var p = new RegExp('http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?','gi');
+// g : 문자열 전체에 매치하는가
+// i : 대소문자를 구별하는가
+
+var str = '한 번을 둘러봐야 하는 사이트 http://www.w3schools.com/ 입니다';
+str += ' 또한 집중적으로 봐야하는 사이트 http://jqapi.ru/ 입니다';
+// 1.  match() 이용
+var result = str.match(p);
+for( var i=0 ; i < result.length; i++ ){
+	document.writeln( result[i] + "<br/>" );
+}
+
+// 2. exec() 이용 : 이상하게 결과나 나오는뎅???????
+while( (result=p.exec(str)) != null ){
+	document.writeln( result + "<br/>" );
+}
+
+// 3. 매치 성공여부 검증 – test()
+	var one = '한 번을 둘러봐야 하는 사이트 http://www.w3schools.com/ 입니다';
+	var other= '또한 집중적으로 봐야하는 사이트 http:// jqapi.ru/ 입니다';
+	
+	document.writeln( p.test(one) + "<br/>" );		// true
+	document.writeln( p.test(other) + "<br/>" );		// false 위에서 한 번 걸리면 다음부터는 false로
+
+// 4. 매치 성공여부 검증 – search()
+	document.writeln( one.search(p)  + "<br/>" );		// 17
+	document.writeln( other.search(p) + "<br/>" );		// -1 으잉? 19가 나온다네, 그럼 위에서 왜 false가 나온다냐?
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

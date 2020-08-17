@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 새로운 for 문장 </title>
+<script type="text/javascript">
+var  arr = ['송혜교', '김태희', '전지현' ];
+//for( var i=0; i<arr.length; i++ )
+for ( var  i  in  arr )
+{
+	document.writeln ( arr[i] +"<br/>");
+}
+
+
+var  obj= { first : '길동',   last : "김" };
+for ( var  j  in  obj){
+	document.writeln (  j + ':' + obj [j] +"<br/>" );
+}
+
+var book = {};
+book.title = '자바스크립트';
+book.publish='JPUB';
+book.price = 28000
+for( var k in book ) {
+	document.writeln( k + ' : ' + book[k]+"<br/>" );
+}
+
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

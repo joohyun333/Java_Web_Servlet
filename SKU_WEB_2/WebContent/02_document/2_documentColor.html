@@ -1,0 +1,56 @@
+<!-- 
+	인자있는 자바스크립스 함수 호출
+ -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 화면 색 바꾸기 </title>
+</head>
+<body>
+	<form name="frm">
+		<input type="button" value="스타일 A" onclick="JavaScript:changeColor('A')">
+		<input type="button" value="스타일 B" onclick="JavaScript:changeColor('B')">
+		<input type="button" value="스타일 C" onclick="JavaScript:changeColor('C')">
+	</form>
+	<ul>
+		<li><a href="http://www.cnn.com"> 여기는 미쿡 </a></li>
+		<li><a href="http://news.bbc.co.uk"> 여기는 영쿡 </a></li>
+	</ul>
+	
+	<!-- 
+			일반적으로 JavaScript는 < head > 안에 기술하는  방법을 많이 씁니다.
+			그러나 필요에 따라 < body > 태그 안에 사용도 합니다.
+			물론, 지금은 그럴 필요가 없지만 < body > 태그 안에 넣어봤음.
+	 -->
+	<script type="text/javascript">
+		function changeColor( colorVar )
+		{
+			
+			// alert("넘겨받은 인자값 : " + colorVar);
+			// colorVar로 넘겨받은 값에 의해 분기하고자 switch~case 문 이용이 바람직
+			switch(colorVar)
+			{
+			case 'A' : 	document.bgColor = "red";
+						document.fgColor = "#cc3366";
+						//document.linkColor = "#ffffff"
+						//document.vlinkColor = "#0000ff"
+						// 링크 색은 CSS에서 하도록 
+						break;
+			case 'B' : 	document.bgColor = "darkgreen";
+						document.fgColor = "#aa3399";
+						document.linkColor = "#7722cc"
+						document.vlinkColor = "#ff0033"
+						break;
+			case 'C' : 	document.bgColor = "maroon";
+						document.fgColor = "#999966";
+						document.linkColor = "#996666"						
+						document.vlinkColor = "#bbee88"
+						break;
+			}
+			
+		}
+	</script>
+</body>
+</html>

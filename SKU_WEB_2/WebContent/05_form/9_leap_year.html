@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 마무리 못함 </title>
+
+<script type="text/javascript">
+
+// 오늘 날짜 구하기
+var today = new Date();
+var year = today.getFullYear();
+var month = today.getMonth();
+var date = today.getDate();
+
+var lastDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var weeks = ['일','월','화','수','목','금','토'];
+
+
+window.onload = function(){
+	
+	var frm = document.frm;
+	
+	// 년 구하기
+	for( var j=year-5;  j<= year+5; j++){
+		frm.y.add( new Option(j, j));				// 만들고 브라우저 F12에서 Elements로 확인 : Option(j)와 Option(j,j) 차이
+	}
+	
+	// 월 구하기
+	for( var i=1 ; i <= 12; i++){
+		frm.m.add( new Option( i, i ));
+	}
+	
+	
+	// 일 구하기	
+	for( var k=1; k <= lastDays[month]; k++){
+		frm.d.add( new Option(k, k));
+	}
+	
+	// 오늘 날짜로 세팅
+	frm.y.value = year; 
+	frm.m.selectedIndex = month; 
+	frm.d.selectedIndex = date-1;	//frm.d.options[date-1].selected = true;
+	frm.w.value = weeks[today.getDay()]; 
+}
+
+function changeDate(){
+	
+	// setDate(0) 함수로 전달의 마지막날을 잘 이용하면 가능	
+// 	var ty = frm.y.value;
+// 	var tm = frm.m.value;
+	
+// 	// 윤년처리
+// 	if( ty%4 ==0 && ty%100!=0 || ty%400==0){
+// 		lastDays[1] = 29;
+// 	}else{
+// 		lastDays[1]=28;
+// 	}
+	
+// 	// 일값 다시 구하기
+// 	frm.d.length = 0; // 전부 지우기
+	
+// 	for( var k=1; k <= lastDays[tm-1]; k++){
+// 		frm.d.add( new Option(k, k));
+// 	}
+	
+	// 요일구하기
+	
+}
+</script>
+
+</head>
+<body>
+<form name='frm'>
+	<select name='y' onchange='changeDate()'></select> 년
+	<select name='m' onchange='changeDate()'></select>월
+	<select name='d'></select>일
+	<input type='text' name='w' size='4'>요일
+</form>
+</body>
+</html>

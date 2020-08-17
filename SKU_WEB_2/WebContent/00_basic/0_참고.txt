@@ -1,0 +1,40 @@
+﻿# 자바스크립트 시작하려면
+
+		기초 문법적으로는 자바의 영향을 받은 듯 하지만, 실제적인 동장에 있어서 다르기에 혼돈스럽다.
+		자바스크립트는 자바스크립트라는 새로운 언어로 접근해야 한다.
+
+# JavaScript 현 실태 확인
+
+	`- http://langpop.corger.nl/ 
+		x축은 github의 소스변경 건수, y축은 stackoverflow 질문 수	nodejs 가 안 보이는데, 자바스크립트이다. 1위
+		
+	`- http://trendyskills.com/
+
+	
+# 자바스크립트의 구성
+	
+	코어(ECMAScript) + 문서객체모델(DOM)  + 브라우저객체모델(BOM)
+	
+
+# 크롬에서 자바스크립트 오류 검색
+
+		크롬 > 맨 오른쪽 아이콘(맞춤선택및 제어) > 도구 더보기 > 확장 프로그램
+		
+		검색 : javascript error notifier
+		
+		검색 : js runtime inspector (월리의 기능을 모르겠음)
+		
+
+
+
+# 정규표현 확인 사이트
+
+	1. www.regexr.com/v1
+	
+	2. 오른쪽 community 탭 선택
+	
+	3. 검색 창에 입력 후 [search] 버튼
+	
+	[예] \be(\w*)s\b  라고 입력하면 ->e로 시작해서 s로 끝나는 단어를 검색
+	
+	

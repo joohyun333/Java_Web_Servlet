@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+
+//------------------------------------------------------------
+//  함수를 인자로 할 때 일회용 함수는 무명함수로 선언
+function prt(key, value){
+	document.writeln( key + ":" + value  + '<br/>');
+}
+function arrayWalk ( data, f ) {
+	for( var key in data ) {
+		f ( key, data[key] );
+	}
+}
+var ary = [1, 2, 3, 4, 5];
+arrayWalk( ary, prt );
+
+//	function arrayWalk ( data, f ) {
+//		for( var key in data ) {
+//			f ( key, data[key] );
+//		}
+//	}
+//	var ary = [1, 2, 3, 4, 5];
+//	arrayWalk( ary, function (key, value){
+//		document.writeln( key + ":" + value  + '<br/>');
+//	} );
+
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+
+## bxSlider 이용하여 배너 광고 만들기
+
+http://bxslider.com
+
+옵션을 한글화 한 사이트
+http://wooreeweb.com/lecture/archives/140
+
+
+jquery 버전 확인 필수!!!!
+

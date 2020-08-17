@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script type="text/javascript">
+
+
+var saram = { name : "홍길돌", age : 22};
+var saram2 = { name : "홍길자", age : 30};
+
+var members = [ saram, saram2 ];
+
+// console.log( members.length);
+// console.log( members[0]);
+
+
+//--------------------------------------------------
+
+members.push( { name : "김길동",  age : 26 });
+members.push( { name : "박길동",  age : 33,  job : "개발자" });
+
+for( var i in members ){
+	console.log( members[i] );
+}
+
+// members.forEach( function(item, index){
+// 	console.log( index + "번째 요소 : " + item.name + " / " + item.age  + " /  " + item.job);
+// });
+
+members.pop();
+for( var i in members ){
+	console.log( members[i] );
+}
+
+delete members[1];	// 인덱스 1도 삭제가 되기에 갯수랑 다르게 나오기에 밑에서 함수 호출시도 확인해야 한다.
+for( var i in members ){
+	console.log( i + ":" +  members[i] );
+}
+
+//-----------------------------------------------------------
+//####  함수도 데이타형이므로 배열의 요소로 추가 가능
+// var add = function( a, b){
+// 	return a + b;
+// }
+
+// members.push(add);
+// for( var i in members ){
+// 	console.log( members[i] );
+// }
+// console.log( members[4]( 3, 4 )); // 주의할점 add라는 함수명이 아닌 배열의요소로 접근 가능
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

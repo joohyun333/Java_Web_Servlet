@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax 계산기 JSON</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+	/*####		이렇게 
+	 $( function(){		
+		document.forms[0].onsubmit = function (){
+			alert('a')
+		}
+	}); */ 
+	
+	$( function(){
+		document.forms[0].onsubmit = handle_submit;
+	});
+		
+		/** 전송작업시 실행되는 함수. false반환하면 전송안됨 */
+		function handle_submit(){
+			
+			 
+				$.ajax({
+					url :  "./jsp/calc-action-json.jsp",
+					type : 'get',
+// 					data : {								// ####  데이타를 이렇게 다시 넘겨줘야 하나????? 
+// 						'op1' : $('#op1').val(),
+// 						'op2' : $('#op2').val(),
+// 						'opr' : $('#opr'). val()
+// 					},
+					dataType : 'json',
+					success : function(data){	
+						$('#result').html( data.result  );
+					}
+			}); 
+			
+			return false;
+		}
+
+	</script>
+</head>
+<body>
+
+	<form action="./jsp/calc-action.jsp" method="get">
+	<input name="op1" id="op1" size="3">
+	<select name="opr" id="opr" >
+		<option>+</option>
+		<option>-</option>
+		<option>*</option>
+		<option>/</option>
+		<option>%</option>
+	</select>
+	<input name="op2" id="op2" size="3">
+	<input type="submit" value=" = ">
+	</form>
+	<fieldset>
+		<legend>실행결과</legend>
+		<div id="result"></div>
+	</fieldset>
+
+</body>
+</html>

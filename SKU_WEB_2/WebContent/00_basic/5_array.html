@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Array 객체 </title>
+<script type="text/javascript">		
+	var arr = ['김태희','송혜교','전지현','김고은','임수정'];
+	document.writeln( arr + '<br/>');
+	document.writeln( arr.join('/')+ '<br/>');
+	document.writeln( arr.slice(3) + '<br/>');
+	document.writeln( arr.slice(1,3) + '<br/>');
+
+	document.writeln( arr.pop() + '<br/>');	// 임수정
+	document.writeln( arr + '<br/>');
+	document.writeln( arr.push('사미자') + '<br/>');
+	document.writeln( arr + '<br/>');
+	document.writeln( arr.shift() + '<br/>');
+	document.writeln( arr + '<br/>');
+
+	//document.writeln( arr.length + '<br/>');
+	document.writeln( arr.reverse() + '<br/>');
+	document.writeln( arr.sort() + '<br/>');
+	//document.writeln( arr.toString() + '<br/>');
+
+
+	var arrTemp = ['강동원', '고수' ];
+	document.writeln( arr.concat(arrTemp) + '<br/>');
+	document.writeln( arr + '<br/>'); // 실제 배열에 추가되는 것은 아님
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

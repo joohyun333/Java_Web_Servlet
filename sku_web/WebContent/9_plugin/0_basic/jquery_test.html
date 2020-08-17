@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript" src="./js/jquery-1.11.1.js"></script>	<!-- 1. jquery -->
+	<script type="text/javascript" src="./js/jquery.red.js"></script>	<!-- 2. jquery plugin -->
+	<!-- 3. user defined js  -->
+	<script type="text/javascript">		
+		
+			$(function(){
+					$("#red").click( function(){
+						$("#result").red();						
+					});					
+			});
+			
+		   	// 함수선언과 호출을 분리하는 방식을 선호한다면
+// 			$(myinit);
+// 			function myinit(){
+// 				$("#red").click( click_red );
+// 			}			
+// 			function click_red(){
+// 				$("#result").red();
+// 			}		
+	</script>
+</head>
+<body>
+		<button id="red">빨강</button>
+		<div id="result">나는 빨강을 좋아한다 </div>
+		
+		
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+<meta charset="UTF-8">
+  <title> DOM이란 </title>
+
+	<!-- 스타일시트-->
+	<style type="text/css">
+		body {
+			background-color : #993399;
+		}
+		div {
+			font-size: 12px;
+			font-family: "굴림", "굴림체";
+			color: #ffff33;
+		}
+	</style>
+	
+	<!-- 자바스크립트 동작 -->
+	<script type="text/javascript">
+		function changeStyle(elem)
+		{
+			document.body.style.backgroundColor = '#FFFFFF';
+			elem.style.color = '#FF4444';
+		}
+		
+		// CSS -표기법을 JS에서는 낙타표기법으로
+	</script>
+ </head>
+
+ <body>
+	<div onmouseover="javascript:changeStyle(this)"> 안녕합시다 </div>
+	<div onmouseover="javascript:changeStyle(this)"> 감사합시다 </div>
+	<div onmouseover="javascript:changeStyle(this)"> 행복합시다 </div>
+ </body>
+</html>

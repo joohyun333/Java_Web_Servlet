@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Javascript 객체지향 </title>
+</head>
+<body>
+<script>
+
+
+// 0. 객체 선언
+// var obj3 = { name : '홍길순', age : 44 };
+// console.log( obj3 );
+
+// var obj2 = {};
+// obj2.name='홍길자';
+// obj2.age = 33;
+// console.log( obj2);
+
+
+var obj = new Object();
+obj.name = '홍길동';
+obj.age = 22;
+obj.dept = '개발부';
+console.log( obj );
+// //console.dir( obj );
+
+
+
+//-----------------------------  with 예약어
+var output = '';
+output += '이름: ' + obj.name + '<br/>';
+output += '나이: ' + obj.age + '<br/>';
+output += '부서: ' + obj.dept +  '<br/>';
+console.log('결과->' +  output );
+document.write( output );
+
+var out = '';
+with(obj){			// with(객체)를 사용하면 { }안에서 객체명을 사용하지 않아도 된다.
+	out += '이름: ' + name + '<br/>';
+	out += '나이: ' + age+ '<br/>';
+	out += '부서: ' + dept + '<br/>';
+}
+console.log('결과2->'+ out );
+document.write( out );
+
+		//*** 객체 리터럴 
+		//	* 장점	- 별도의 클래스와 같은 구조 없이 빠르게 객체를 작성하고 구성이 자유롭다
+		//	* 단점 - 구조가 미리 정의된 적이 없으므로 객체의 구조 파악이 어렵다
+		//			   - 구조가 없으므로 재사용이 불가능
+
+	//---------------------------------------------------------------
+	// 1. 클래스 선언 -  생성자로 초기화하기
+	// 생성자명은 함수명과 구별하기 위해 대문자로 시작하는 것이 일반적
+	var Student = function(name, kor, eng, math){
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+
+		this.sum = function(){
+			return kor+eng+math;
+		};
+	};
+
+	var s1 = new Student('홍길동', 98, 69, 73 );
+	document.writeln( s1.name + ' 총점 : ' +  s1.sum() );	
+
+	// 2. 동적으로 메소드 추가
+	s1.showInfo = function() { 
+		return this.name + ' : ' +  this.kor + '/' + this.eng + '/' + this.math + '=>' + this.sum();
+	};
+				// [참고]  점(.) 연산자말고 [] 연산자 가능?
+				s1['showInfo'] = function() { 
+					return this.name + ' : ' +  this.kor + '/' + this.eng + '/' + this.math + '=>' + this.sum();
+				};
+	document.writeln(s1.showInfo());
+
+	// 동적으로 추가한 메소드는 해당 객체에서만 실행
+	var s2 = new Student('홍길순', 99, 88, 77 );
+	document.writeln(s2.name +  ' 총점 : ' +  s2.sum() );	
+	//document.writeln(s2.showInfo());
+
+
+/*
+	// 3. 공통적인 메소드는 프로토타입으로 선언
+	var Student = function(name, kor, eng, math){
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+	};
+	Student.prototype.sum = function(){
+			return this.kor+this.eng+this.math;
+	};
+	Student.prototype.showInfo = function() { 
+		return this.name + ' : ' +  this.kor + '/' + this.eng + '/' + this.math + '=>' + this.sum() + '<br/>';
+	};
+	var s1 = new Student('홍길동', 99, 88, 77 );
+	document.writeln(s1.showInfo());
+
+	var s2 = new Student('홍길자', 95, 85, 75 );
+	document.writeln(s2.showInfo());
+	
+// 	[ 확인 ] __proto__은 공유되는 형태이다
+	console.log( s1 );
+	console.log( s2);
+	
+	// [ 참고]
+	// 자바스크립트의 함수는 객체이다
+	// 함수는 prototype 이라는 속성을 가진다
+*/
+	
+	
+	/*
+	// 4. 프로토타입 객체를 이용 
+	//     객체의 프로퍼티(변수)도 프로토타입으로 선언할 수 있지만 공통적으로 사용하는 것이 아니라,
+	//	 각각의 인스턴스에 저장된다.
+	var Student = function(name, kor, eng, math){
+		this.name = name;
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
+	};
+	Student.prototype = {
+		sum : function(){
+			return this.kor+this.eng+this.math;	},
+		showInfo : function() { 
+		return this.name + ' : ' +  this.kor + '/' + this.eng + '/' + this.math + '=>' + this.sum() + '<br/>';	}
+	};
+
+	var s1 = new Student('홍길동', 99, 88, 77 );
+	document.writeln(s1.showInfo());
+
+	var s2 = new Student('홍길자', 95, 85, 75 );
+	document.writeln(s2.showInfo());
+	
+// 	[ 확인 ]
+// 	console.log( s1 );
+// 	console.log( s2);
+*/
+	
+</script>
+</body>
+</html>

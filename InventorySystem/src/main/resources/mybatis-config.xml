@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+  
+<configuration>
+ <typeAliases>
+   <typeAlias type="com.example.domain.CustomersDomain" alias="CustomersDomain"/>
+   <typeAlias type="com.example.domain.GoodsDomain" alias="GoodsDomain"/>
+   <typeAlias type="com.example.domain.NoteDomain" alias="NoteDomain"/>
+   <typeAlias type="com.example.domain.tradeGoodsDomain" alias="tradeGoodsDomain"/>
+ </typeAliases>
+ 
+ <mappers>
+   <mapper resource="com/example/customers/customersMapper.xml"/>
+   <mapper resource="com/example/goods/goodsMapper.xml"/>
+   <mapper resource="com/example/note/noteMapper.xml"/>
+   <mapper resource="com/example/tradeGoods/tradeGoodsMapper.xml"/>
+ </mappers>
+ 
+</configuration>  

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script type="text/javascript" src="./js/jquery-1.11.1.js"></script>
+	<script type="text/javascript">
+// 		$(function(){
+// 				$("#get_time").click( function(){
+// 						$.ajax({ // 대상없이 기능만 사용하기에 $ 만 지정
+// 								url: "./jsp/time.jsp"
+// 								, success :   function (data) { 
+// 									$("#result").html(data);
+// 								}
+// 								//, type:"POST"
+								
+// // 								IE : 기본이 get 방식임으로 한 번만 가져옴
+// // 								Chrome: 기본이 post 방식이라 누를 때마다 새롭게 데이타 가져옴
+								
+// 						});	
+// 				});
+// 		});
+
+		//#### AJAX 축약형
+// 		$(function(){
+// 				$("#get_time").click( function(){
+// 					$.post("./jsp/time.jsp", function(data){
+// 						$("#result").html(data);
+// 					})
+// 				});
+// 		});
+		
+		//#### 함수를 따로 정의할 경우
+		$(function(){
+				$("#get_time").click( function(){				
+					$.post("./jsp/time.jsp", myfunc );
+				});
+				function myfunc(data){
+					$("#result").html(data);
+				}
+		});
+		
+
+		//#### 네이버 실시간 검색어 가져오기
+		$(function(){
+			$("#naver").click(click_naver);
+			function click_naver(){			
+				$.post('./jsp/proxy_naver.jsp', function(data){	// 여기 data의 형식이 중요					
+						// 크롬에서 네이버 접속 후 우측 상단에 실시간검색어 중 첫번째에 마우스를 두고 오른 마우스로 요소검사를 눌러
+						// 그 요소의 부모인 ol 태그의 id를 확인
+						var realrank = $(".PM_CL_realtimeKeyword_rolling_base", data);	
+				
+						// var realrank = $("#realrank"); 이 코드는 현재 페이지에서 realrank 아이디를 찾음
+						// data 에서  realrank 아이디를 찾음
+						$("#result").empty();
+						$("#result").append( realrank);
+				});				
+				
+				/*
+					$.ajax({
+						url : './jsp/proxy_naver.jsp',
+						type : 'get',
+						success : function( data) {
+							
+						}
+					});
+				*/
+			 }	
+		});
+		
+		//#### 멜론 목록 가져오기
+		$(function(){
+			$("#melon").click(function(){
+				$.post('./jsp/proxy_melon.jsp', function(data){	// 여기 data의 형식이 중요					
+					// 크롬에서 네이버 접속 후 우측 상단에 실시간검색어 중 첫번째에 마우스를 두고 오른 마우스로 요소검사를 눌러
+					// 멜론 사이트는 네이버와 다르게 id가 없기에 가까운 클래스를 찾음
+					var songchart = $(".typeRealtime > ul", data);	
+					$("#result").empty();
+					$("#result").append( songchart);
+				});
+			});
+		});		
+		
+		//@ [과제] 멜론에서 순위, 노래제목, 가수명만 가져와 이쁘게 꾸민다면
+// 		$(function(){
+// 			$("#melon").click(function(){
+// 				$.post('./jsp/proxy_melon.jsp', function(data){	
+// 					var songchart = $(".typeRealtime > ul > li", data);				
+// 					$("#result").empty();
+					
+// 					songchart.each(function(){	//li 태그마다 매 실행
+// 						// this는 처리대상인 해당 li 태그임
+// 						var rankNum = $(".rank",this).html();	// this요소에서 클래스 rank인 값을 얻어옴
+// 						var songTitle = $(".song",this).text();		// text()과 html() 차이 확인
+// 						var singer = $(".artist > .ellipsis > a",this).html();
+						
+// 						$("#result").append( rankNum + "위 " + songTitle + " -" + singer  +"<br>");
+// 					});					
+// 				});
+// 			});
+// 		});	
+		
+
+	</script>
+</head>
+<body>
+	<h1>제목</h1>
+	<button id="get_time">시간</button>
+	<button id="naver">네이버</button>
+	<button id="melon">멜론</button>
+	<div id="result"></div>
+</body>
+</html>

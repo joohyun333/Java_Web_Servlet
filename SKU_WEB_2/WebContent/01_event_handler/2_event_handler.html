@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 이벤트 핸들러 연결 </title>
+ <script type="text/javascript">
+ 
+// 0. 실행 안됨 -  크롬에서 에러로 나옴
+	
+// 	document.getElementById('btn').onclick = btn_click;	
+// 	function btn_click(){
+// 		window.alert('버튼 클릭 이벤트 1 ' );
+// 	} 
+
+	
+// 1. 윈도우가 열린 후에 핸들러 연결 - 방식1
+//  	window.onload= init;	
+// 	// window.onload= init();	 // 틀린 문법 
+// 	function init(){
+// 		document.getElementById('btn').onclick = btn_click;	
+// 		function btn_click(){
+// 			window.alert('버튼 클릭 이벤트 2 ');
+// 		}
+// 	}  
+
+	
+// 2.  윈도우가 열린 후에 핸들러 연결 - 방식2
+ 	window.onload= function() {
+		document.getElementById('btn').onclick = function(e){
+			window.alert('버튼 클릭 이벤트 3' + e);
+		} 
+	}  
+	
+//---------------------------------------------------------	
+// 3. 이벤트 객체 생성하기 
+
+//		(1) FireFox, Chrome, Safari, Opera, IE 9  이상
+//			 이벤트가 발생할 때 매개 변수에 이벤트 객체가 자동으로 생성
+// 		document.onkeydown = function(e){
+// 			alert(e);
+// 		} 
+//		(2) IE8 이하
+// 	document.onkeydown = function(e){
+// 		alert( window.event );	
+// 	}
+//		(3) 모든 브라우저에서 이벤트 객체 생성하려면
+// document.onkeydown = function (e){
+// 	var evtObj  =  e?e:window.event;
+// 	alert( evtObj );
+// }
+//     설명해 가며 확인
+//  	window.onload= function(e) {
+//  		var evt = e?e : window.event;
+// 		document.getElementById('btn').onclick = function(){
+// 			window.alert('버튼 클릭 이벤트 3');
+// 		} 
+// 	}  
+
+
+</script>
+ </head>
+ <body>
+	<input type='button' value='눌러'  id='btn' />
+ </body>
+</html>

@@ -1,0 +1,69 @@
+<!--
+
+ 1. 문서를 출력 
+ 
+	document.open()	: 문서의 출력을 시작
+	docuemnt.close(): 문서의 출력을 종료 
+					 (* open()으로 출력을 시작한 문서는 반드시 close()로 작업을 종료해야 함 )
+	document.clear(): 문서를 삭제 
+					 ( 다른 프레임이나 윈도우의 내용을 삭제하고 싶을 경우만 사용 )
+					 
+ 2. 문자열을 출력
+ 	document.write() : 문자열을 출력
+ 					 ( 문자열을 연결할 땐 + 나 ,(콤마)로 연결 )
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> Document 예제 </title>
+<meta charset="UTF-8">
+<style type="text/css">
+	body { 
+		background-color: #ffcc33;
+		color: #2222ff;
+	}
+	
+</style>
+<script type="text/Javascript">
+
+	function show_document()
+	{
+		/*
+			1. 사용자이름 텍스트필드의 입력값을 변수로 지정
+			2. 문서를 연다
+			3. 문서에 쓴다 ( 예 : 환영합니다. 누구누구 님 )
+			4. 문서를 닫는다
+		*/
+		
+		var userName = document.frm.userName.value;
+		// var userName = document.forms[0].userName.value;
+		//  var userName = document.getElementById('userName').value;
+		
+													//var today = new Date();
+															
+													// 		document.open();
+													// 		document.write("환영합니다." + userName +   "님 <br>");
+													// 		document.write("오늘은 ", today.toLocaleString() + "입니다. <br>")
+													// 		document.write("<img src='../images/1.jpg' alt='그리운곳'>");
+													// 		document.bgColor = "#6666ff";	
+													// 		document.fgColor = "#ff22ff";
+													// 		document.close();
+
+var result = document.getElementById('result');
+result.innerHTML = userName +"님 반갑";
+
+	}
+</script>
+</head>
+
+<body>
+	<form name="frm">
+		당신의 이름은? <input type="text" name="userName" size="20">
+		<input type="button" value="눌려봐" onclick="JavaScript:show_document()">
+	</form>
+	<div id='result'></div>
+</body>
+</html>
+

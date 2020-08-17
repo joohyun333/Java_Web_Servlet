@@ -1,0 +1,29 @@
+﻿jquery plugin
+
+1. mask input
+	http://digitalbush.com/projects/masked-input-plugin/
+
+2. jqGrid
+	http://trirand.com/blog/jqgrid/jqgrid.html
+
+3. ui layout
+	http://layout.jquery-dev.net/index.html
+	
+
+4. 팝업
+	http://dinbror.dk/bpopup/
+	
+	magnific popup
+	
+
+5. 모달다이알로그
+    colorbox	,   jbox,   light box
+	
+----------------------
+jquery 함수 
+	http://jqapi.ru	- 없어짐
+	
+	
+
+
+-----------------------

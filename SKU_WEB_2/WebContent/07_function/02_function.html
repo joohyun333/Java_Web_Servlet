@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>리터럴 함수</title>
+</head>
+<body>
+	<script>
+
+		/*
+		# function 명령은 정적인 구조이고, 
+		# Function 생성자와 함수리터럴은 실행시 판단한다.
+	
+	
+		# ->  다시 타이핑 하지 말고 00_kinds_of_func.html  예문으로 확인
+		
+		*/
+		/*
+		document.writeln('삼각형의 면적은 2 ' +  triangle(4,3) + '</br>');
+		function triangle ( base, height ){
+					return base * height / 2;
+		}
+ 		document.writeln('삼각형의 면적은 ' +  triangle(4,3) + '</br>');		
+ 		var triangle = function( base, height ){
+ 			alert( this.base );
+ 			return base * height / 2;
+ 		} 		
+
+		*/
+		
+
+		
+		/*
+		// 함수는 데이터형의 일종이다.
+		var triangle = function( base, height ){
+
+			return base * height / 2;
+		}
+
+		document.writeln('삼각형의 면적은 ' +  triangle(4,3) + '</br>');
+		document.writeln('triangle의 값 : ' + triangle  + '</br>');
+		triangle = '문자로 변환';
+		document.writeln('triangle의 값 : ' +  triangle  + '</br>');
+		*/
+		
+		//-------------------------------  새 파일에서
+		// [ 추가 ]  함수도 객체처럼 배열에 저장
+// 		function doA(){
+// 			document.writeln(' 함수 A  <br/>' );
+// 		}
+// 		function doB(){
+// 			document.writeln(' 함수 B  <br/>' );
+// 		}
+		
+// 		var arr = [ doA, doB];
+// 		console.log('함수 : ' +  arr );
+		
+// 		arr[0]();
+		
+		
+		
+		
+		//-------------------------------------------------------------------------
+
+		/*
+		// 함수의 파라미터 갯수는 체크하지 않는다.
+		function multiple( first, second )
+		{
+			return first * second;
+		}
+
+		document.writeln('곱은 ' +  multiple( 3 ) + '<br/>' );
+		document.writeln('곱은 ' +  multiple( 3, 4 ) + '<br/>'  );
+		document.writeln('곱은 ' +  multiple( 3, 4, 5 ) + '<br/>'  );
+		*/
+
+		/*
+		// 여러개의 인수(파라메터)를 익명의 객체로 받음
+		
+		function multiple( args )
+		{
+			return args.first * args.second;
+		}
+
+		document.writeln('곱은 ' +  multiple({ first: 3, second: 4} ) + '<br/>' );
+		*/
+		
+		/*
+		// arguments 라는 특별한 객체
+		function func(){
+			document.writeln( arguments + "<br/>");
+			console.log( arguments );
+		}
+		
+		func(1);
+		func(2, 3);
+		func(9, 8, 7);
+		*/
+		
+
+	</script>
+</body>
+</html>

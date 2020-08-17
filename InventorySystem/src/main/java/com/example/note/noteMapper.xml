@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.example.note.noteDao"> 
+
+
+<!-- 게시물 list-->
+<select id="list" resultType="com.example.domain.NoteDomain">
+select         
+    num,title,content,time
+from
+       note
+</select>
+
+
+<!-- 게시물 조회 -->
+<select id="view" resultType="String">
+select
+     content
+from
+       note
+where
+  num=#{num}
+</select>
+
+
+<!-- 게시물쓰기  -->
+<insert id="write">
+ insert into note(title,content)
+   values( #{title},#{content})
+</insert>
+
+
+<!-- 게시물 수정 -->
+<update id="modify" parameterType="com.example.domain.NoteDomain">
+update 
+      note
+  set
+      title=#{title},
+      content=#{content}
+where 
+      num=#{num}
+</update>
+ 
+ 
+<!-- 게시물 삭제 -->
+<select id="delete" parameterType="int" >
+delete
+  from 
+    note
+where 
+    num=#{num}
+</select>   
+</mapper>

@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> 파라메터 인자</title>
+	
+	<script>
+		// 기본형 파라메터 인자
+		var pri = 10;
+		function priParam ( pri ){
+			pri--;
+			return pri;
+		}
+		document.writeln('기본형 인자 1> ' + priParam( pri ) +"<br/>");
+		document.writeln('기본형 인자 2> ' + pri  +"<br/>");
+
+		// 참조형 파라메터 인자
+		var ref = [ 1, 2, 3, 4, 5 ];
+		function refParam ( ref ){
+			ref.pop();
+			return ref;
+		}
+		document.writeln('참조형 인자 1> ' + refParam( ref ) +"<br/>");
+		document.writeln('참조형 인자 2> ' + ref  +"<br/>");		
+
+	</script>
+</head>
+
+<body>
+
+  
+ </body>
+</html>

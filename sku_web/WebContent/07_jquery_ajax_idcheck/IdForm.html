@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> 아이디 중복 검사 </title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+	$('#id_check').click(function() {	
+		$.ajax({
+			url:'IdCheck.jsp',
+			type:'get',
+			data:({userid: $('input[name=id]').val() }),				//###### 	
+			dataType:'text',						// 응답데이타 종류 (xml/html/script/json/jsonp/text)			
+			success:function(data){
+				if( data.trim() == 'YES' ) {			//  jQuery.trim(data)도 가능
+					$('#idmessage').text("이미 사용중인 아이디입니다.");
+					$('#idmessage').show();
+				} else {
+					$('#idmessage').text("사용가능한 아이디입니다.");
+					$('#idmessage').show();						
+				}				
+			},
+			error : function(err){
+				alert('에러발생 : ' + err );
+			}
+		
+		/* // 처리 콜백 함수
+			beforeSend 	( XMLHttpRequest 객체)  						:	request 전에 실행하는 콜백함수
+			complete 		( XMLHttpRequest 객체, status 문자열 ) : ajax 통신 완료시 실행 
+			error  			( XMLHttpRequest 객체, error 객체 ) 		: 통신 실패시 실행
+			success : 통신 성공시 실행하는 콜백함수	
+		*/
+		});		
+	});		
+});
+</script>
+
+</head>
+<body>
+
+<input name="id" type="text" class="userinput" size="15" />
+<button type="button" id="id_check">중복체크</button><br/><br/>
+<div id="idmessage" style="display:none;"></div>
+
+</body>
+</html>
