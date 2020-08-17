@@ -13,7 +13,9 @@
 </head>
 
 <body>
+
   <!-- 메뉴 -->
+  <a href="/InventorySystem/Login/login"><img height="30" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
    <button type="button" onclick="location.href='/InventorySystem/GoodsManage/goodslist'">물품관리</button>
    <button type="button" onclick="location.href='/InventorySystem/TradeGoodsManage/tradelist'">물류관리</button>
    <button type="button" onclick="location.href='/InventorySystem/Imformation/deal'">정보조회</button>
@@ -23,7 +25,7 @@
   <!-- 메모장 -->
    <form>
      <div class="Main">
-      <h1>메모장</h1>
+      <h1>메모장</h1>  <td><input type="text" value = ""></td>
       <button type="button" id="write" onclick="location.href='/InventorySystem/Main/write'">작성</button>
        
       <hr/>
