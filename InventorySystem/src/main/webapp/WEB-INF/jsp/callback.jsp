@@ -56,7 +56,8 @@
 			jsonObject = new JSONObject(res.toString());
 			access_token = jsonObject.getString("access_token");
 			refresh_token = jsonObject.getString("refresh_token");
-			out.println("API요청 성공!");	
+			out.println(access_token instanceof String);
+			out.println("API요청 성공!</br>");	
 		}
 	} catch (Exception e) {
 		System.out.println(e);
