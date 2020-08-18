@@ -25,7 +25,7 @@ public class ApiExamMemberProfile {
 		Map<String, String> requestHeaders = new HashMap<>();
 		requestHeaders.put("Authorization", header);
 		String responseBody = get(apiURL, requestHeaders);
-
+		
 		System.out.println(responseBody);
 	}
 
