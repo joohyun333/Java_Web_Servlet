@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping(value = "/callback")
 public class ApiExamMemberProfile {
-	private static String access_token;
+	/* private static String access_token; */
 	public static void main(String[] args) {
-		String token = access_token; // 네이버 로그인 접근 토큰;
+		String token = "AAAAOgx1wDm_9_uyKKEbG8CJE4lK1MAiA1CSwry9_RkS9uQJLkBV5Jh_UtzXD8YZS6VVaSoK8pS2QEMYvBjIdA9Fwo8"; // 네이버 로그인 접근 토큰;
 		String header = "Bearer " + token; // Bearer 다음에 공백 추가
 
 		String apiURL = "https://openapi.naver.com/v1/nid/me";

@@ -64,7 +64,9 @@
 	}
 	%>
 	</br>
+	${message}</br>
 	<%="접근 토큰" + access_token%> </br>
 	<%="갱신 토큰" + refresh_token%>
+	
 </body>
 </html>

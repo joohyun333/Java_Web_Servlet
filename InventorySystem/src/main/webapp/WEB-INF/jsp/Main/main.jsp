@@ -30,9 +30,18 @@
     apiURL += "&state=" + state;
     session.setAttribute("state", state);
  %>
-
+<c:forEach items = "${message}" var = "login">
+	<c:set var = "login" value = "${login}"/>
+</c:forEach>
+<%
+	String login = (String)pageContext.getAttribute("login");
+	if (login != null){
+		out.println("로그인 성공");%>
+		<a>${message}</a>
+	<% }else{
+%>
   <!-- 메뉴 -->
-  <a href="<%=apiURL%>"><img height="30" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
+  <a href="<%=apiURL%>"><img height="30" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a><%} %>
    <button type="button" onclick="location.href='/InventorySystem/GoodsManage/goodslist'">물품관리</button>
    <button type="button" onclick="location.href='/InventorySystem/TradeGoodsManage/tradelist'">물류관리</button>
    <button type="button" onclick="location.href='/InventorySystem/Imformation/deal'">정보조회</button>
