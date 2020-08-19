@@ -36,15 +36,13 @@
    <button type="button" onclick="location.href='/InventorySystem/Imformation/deal'">정보조회</button>
    <button type="button" onclick="location.href='/InventorySystem/CustomersManage/selList'">고객관리</button>
    <button type="button" onclick="location.href='/InventorySystem/Statistics/customers'">통계정보</button>
-
   <!-- 메모장 -->
    <form>
      <div class="Main">
-      <h1>메모장</h1>  <td><input type="text" value = ""></td>
+      <h1>메모장</h1>  
+      <td><input type="text" value = ""></td>
       <button type="button" id="write" onclick="location.href='/InventorySystem/Main/write'">작성</button>
-       
       <hr/>
-             
       <table>
         <thead>
         <tr>
