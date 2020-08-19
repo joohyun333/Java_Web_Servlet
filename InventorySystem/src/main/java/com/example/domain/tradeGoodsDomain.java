@@ -23,19 +23,14 @@ CREATE TABLE tradeGoods
  */
 
 @Component
-public class tradeGoodsDomain extends GoodsDomain{
+public class tradeGoodsDomain{
 	private int dealNumber; //거래번호
 	private String goodsNo; //물품코드
 	private String classification; // ex) 입고 , 출고
 	private int amount; // 수량
 	private Date date; //거래날짜
 	private int totalprice; // 거래금액
-	private String cusName; //거래처 이름
-	private GoodsDomain goodsDomain; // goods join 가져올것
-	
-	public tradeGoodsDomain() {
-		this.goodsDomain = new GoodsDomain();
-	}		
+	private String cusName; //거래처 이름		
 	
 	public int getDealNumber() {
 		return dealNumber;

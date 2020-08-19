@@ -8,7 +8,7 @@
 </head>
 <body>
 	<input type="button" id="main" name="main"
-		onclick="location.href='../Main/main'" value="메인"></input>
+		onclick="location.href='../callback'" value="메인"></input>
 	<input type="button" id="goods" name="goods"
 		onclick="location.href='../GoodsManage/goodslist'" value="물품 관리"></input>
 	<input type="button" id="tradegoods" name="tradegoods"

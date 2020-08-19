@@ -22,8 +22,8 @@ public class ImformationController {
 			
 			GenericXmlApplicationContext ctx=new GenericXmlApplicationContext("classpath*:applicationContext.xml");
 			goodsDaoImpl goodsdao=(goodsDaoImpl)ctx.getBean("goodsService");
-			
-			 List<GoodsDomain> list=goodsdao.goodsList();
+			GoodsDomain goodsDomain = new GoodsDomain();
+			 List<GoodsDomain> list=goodsdao.goodsList(goodsDomain);
 			 
 			 
 			 mav.addObject("GoodsList", list);
@@ -40,9 +40,9 @@ public class ImformationController {
 		public ModelAndView getdeal(ModelAndView mav,HttpServletRequest request) {
 					
 		  GenericXmlApplicationContext ctx=new GenericXmlApplicationContext("classpath*:applicationContext.xml");
-		  tradeGoodsImpl tradegoods=(tradeGoodsImpl)ctx.getBean("tradeGoodsService");
+		  goodsDaoImpl tradegoods=(goodsDaoImpl)ctx.getBean("goodsService");
 					
-		  List<tradeGoodsDomain> list=tradegoods.tradelist();
+		  List<GoodsDomain> list=tradegoods.tradeList();
 		 		 
 		 mav.addObject("tradeList", list);
 		 mav.setViewName("/Imformation/deal");

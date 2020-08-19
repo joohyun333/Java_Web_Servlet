@@ -5,17 +5,24 @@
 <html>
 <head>
 <title>거래 내역</title>
+<!-- CSS -->
+<link href="${pageContext.request.contextPath}/CSS/tradelist.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 	<!-- 파일을 전송하기 위한 enctype -->
 	<form name="inputlist" action="tradelist" enctype="multipart/form-data" method="post">
-	<input type="button" id="main" name="main" onclick="location.href='../Main/main'" value="메인"></input>
-	<input type="button" id="goods" name="goods" onclick="location.href='../GoodsManage/goodslist'" value="물품 관리"></input>
-	<input type="button" id="tradegoods" name="tradegoods" onclick="location.href='../TradeGoodsManage/tradelist'" value="물류 관리"></input>
-	<input type="button" id="information" name="info" onclick="location.href='../Imformation/goods'" value="정보 조회"></input>
-	<input type="button" id="customer" name="customer" onclick="location.href='../CustomersManage/selList'" value="고객 관리"></input>
-	<input type="button" id="statistics" name="statistics" onclick="location.href='../Statistics/customers'" value="통계 정보"></input>
-
+	<h1 id="title">재고관리프로그램</h1>
+	<div class="topnav">
+  <a href="../callback">메인</a>
+  <a href="../GoodsManage/goodslist">물품 관리</a>
+  <a href="../Imformation/goods">정보 조회</a>
+  <a href="../CustomersManage/selList">고객 관리</a>
+  <a href="../Statistics/customers'">통계정보</a>
+</div>
+	<div id="wrap">
+      <h1>물류관리</h1>
+          <button type="button" id="plus" onclick="location.href='../TradeGoodsManage/inputlist'">추가</button>
 	<table style="width: 80%">
 		<tr>
 			<th>거래번호</th>
@@ -31,63 +38,25 @@
 			<th>제조사</th>
 			<th>거래일자</th>
 		</tr>
-		<!-- dealNumber, classification, g.goodsNo, goodsName, size, goodsPrice, amount, totalprice, goodsColor, brandName, manufacturer, Date -->
-		<%-- <tr>
-					<th>${tradelist.dealNumber}</th>
-					<th>${tradelist.classification}</th>
-					<th>${tradelist.goodsNo}</th>
-					<th>${tradelist.goodsName}</th>
-				    <th>${tradelist.size}</th>
-					<th>${tradelist.goodsPrice}</th> 
-					<th>${tradelist.amount}</th>
-					<th>${tradelist.totalprice}</th>
-					<th>${tradelist.goodsColor}</th>
-					<th>${tradelist.brandName}</th> 
-					<th>${tradelist.manufacturer}</th>
-					<th>${tradelist.Date}</th>
-				</tr> --%>
-				
-				
-				<%-- <th>${tradelist.dealNumber}</th>
-				<th>${tradelist.classification}</th>
-				<th>${tradelist.goodsNo}</th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th>${tradelist.amount}</th>
-				<th>${tradelist.totalprice}</th>
-				<th></th>
-				<th></th>
-				<th>${tradelist.cusName}</th>
-				<th>${tradelist.date}</th> --%>
-				
-				
-		<c:forEach items="${TradeList}" var="tradelist">
+		<c:forEach items="${TradeList}" var="tradeList">
 			<tr>
-				<th>${tradelist.dealNumber}</th>
-				<th>${tradelist.classification}</th>
-				<th>${tradelist.goodsNo}</th>
-				<th>${tradelist.goodsName}</th>
-				<th>${tradelist.size}</th>
-				<th>${tradelist.goodsPrice}</th>
-				<th>${tradelist.amount}</th>
-				<th>${tradelist.totalprice}</th>
-				<th></th>
-				<th></th>
-				<th>${tradelist.cusName}</th>
-				<th>${tradelist.date}</th> 
+				<th>${tradeList.dealNumber}</th>
+				<th>${tradeList.classification}</th>
+				<th>${tradeList.goodsNo}</th>
+				<th>${tradeList.goodsName}</th>
+				<th>${tradeList.size}</th>
+				<th>${tradeList.goodsPrice}</th>
+				<th>${tradeList.amount}</th>
+				<th>${tradeList.totalprice}</th>
+				<th>${tradeList.goodsColor}</th>
+				<th>${tradeList.brandName}</th>
+				<th>${tradeList.cusName}</th>
+				<th>${tradeList.date}</th> 
 				<td><input type="button" id="input" name="input" onclick="location.href='../TradeGoodsManage/tradeGoodsDelete?dealNumber=${tradelist.dealNumber}'" value="삭제"></input></td>
 			</tr>
 		</c:forEach>
-
-		<tr>
-			<td colspan="2"><br /> 
-			<span style="float: right;">
-					<button type="button" onclick="location.href='../TradeGoodsManage/inputlist'">추가</button>
-			</span>
-			</td>
-		</tr>
 	</table>
+	</div>
 	</form>
 </body>
 </html>

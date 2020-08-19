@@ -23,14 +23,13 @@
   // 네이버 사용자 프로필 조회
   naver_id_login.get_naver_userprofile("naverSignInCallback()");
   // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
-  var nickname = naver_id_login.getProfileData('nickname');
-	document.form1.len.value = nickname; 
-  function naverSignInCallback() {/* 
+  function naverSignInCallback() {
+	/* 
     alert(naver_id_login.getProfileData('email'));
     alert(naver_id_login.getProfileData('nickname'));
     alert(naver_id_login.getProfileData('age')); */
-	var nickname = naver_id_login.getProfileData('nickname');
-	document.form1.len.value = nickname; 
+	var email = naver_id_login.getProfileData('email');
+	document.form1.len.value = email; 
   }
   
 </script>

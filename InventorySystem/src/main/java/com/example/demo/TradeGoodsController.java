@@ -39,17 +39,17 @@ public class TradeGoodsController {
 
 	// 반품처리
 
-	// goods join tradegoods리스트
-	@RequestMapping(value = "/TradeGoodsManage/tradelist", method = RequestMethod.GET)
-	public ModelAndView getTradegoodsList(ModelAndView mav) {
-		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath*:applicationContext.xml");
-		tradeGoodsImpl tradeGoodsdao = (tradeGoodsImpl) ctx.getBean("tradeGoodsService");
-		List<tradeGoodsDomain> list = tradeGoodsdao.tradelist();
-		mav.addObject("TradeList", list);
-		mav.setViewName("/TradeGoodsManage/tradelist");
-		ctx.close();
-		return mav;
-	}
+//	// goods join tradegoods리스트
+//	@RequestMapping(value = "/TradeGoodsManage/tradelist", method = RequestMethod.GET)
+//	public ModelAndView getTradegoodsList(ModelAndView mav) {
+//		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath*:applicationContext.xml");
+//		tradeGoodsImpl tradeGoodsdao = (tradeGoodsImpl) ctx.getBean("tradeGoodsService");
+//		List<tradeGoodsDomain> list = tradeGoodsdao.tradelist();
+//		mav.addObject("TradeList", list);
+//		mav.setViewName("/TradeGoodsManage/tradelist");
+//		ctx.close();
+//		return mav;
+//	}
 	// tradegoodslist 삭제
 	@RequestMapping(value= "/TradeGoodsManage/tradeGoodsDelete",method = RequestMethod.GET)
 	public ModelAndView TradegoodsDelete(tradeGoodsDomain tradegoodsDomain,ModelAndView mav) {

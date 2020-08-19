@@ -13,9 +13,16 @@ public class goodsDaoImpl implements goodsDao{
   
   
   @Override //물품 등록
-  public List<GoodsDomain> goodsList(){
-	  
-	  return goodsDao.goodsList();
+  public List<GoodsDomain> goodsList(GoodsDomain goods){
+	  List<GoodsDomain> goodList = null;
+	  try {
+		 goodList = goodsDao.goodsList(goods);
+		  
+	  }catch(Exception e){
+		  e.printStackTrace();
+		  System.out.println(e.getMessage());
+	  }
+	  return goodList;
   }
   
   @Override //물품 등록
@@ -59,6 +66,12 @@ public class goodsDaoImpl implements goodsDao{
 	  
 	 return goodsDao.goodsNoImfo(goodsNo);
   }
-	
+  
+  @Override	// tradegoods join goods
+	public List<GoodsDomain> tradeList(){
+
+		return goodsDao.tradeList();
+
+	}
 	
 }

@@ -7,7 +7,7 @@
 	<select id="selList" resultType="com.example.domain.CustomersDomain">
 		select cusName, phoneNo, address
 		from customers
-		where classification like '입고'
+		where classification like '출고'
 	</select>
 	
 	<!-- 거래처(판매) 리스트 클릭 했을 때 거래 목록 출력 -->

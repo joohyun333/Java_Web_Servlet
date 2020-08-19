@@ -1,6 +1,7 @@
 package com.example.tradeGoods;
 
 import java.util.List;
+
 import com.example.domain.tradeGoodsDomain;
 
 public class tradeGoodsImpl implements tradeGoodsDao {
@@ -12,10 +13,10 @@ public class tradeGoodsImpl implements tradeGoodsDao {
 	}
 
 	
-	@Override // 물류 리스트
-	public List<tradeGoodsDomain> tradelist() {
-		return tradeGoodsDao.tradelist();
-	}
+//	@Override // 물류 리스트
+//	public List<tradeGoodsDomain> tradelist() {
+//		return tradeGoodsDao.tradelist();
+//	}
 
 	
 	@Override // 입고 처리

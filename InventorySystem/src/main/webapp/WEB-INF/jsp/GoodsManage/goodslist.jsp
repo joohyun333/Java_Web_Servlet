@@ -4,19 +4,6 @@
 <html>
 <head>
 <title>물품조회</title>
-<script type="text/javascript">
-//검색을 위한 스크립트
-	window.onload = function(){
-	document.getElementById("btnSearch").onclick=function(){
-		if(search.search_word.value==""){
-			search.search_word.focus();
-			alert("검색어를 입력하세요");
-			return;
-		}
-		search.submit();
-	}
-}
-</script>
 </head>
 <body>
 	<input type="button" id="main" name="main" onclick="location.href='../Main/main'" value="메인"></input>
@@ -39,7 +26,6 @@
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>
-
 		<c:forEach items="${goodsList}" var="list">
 			<tr>
 				<td>${list.goodsNo}</td>
@@ -59,17 +45,15 @@
 	<!-- <span style="float:right;"> -->
 		<input type="button" id="input" name="input" onclick="location.href='../GoodsManage/GoodsRegisterForm'" value="물품 등록"></input>
 	<!--</span> -->
-	<!-- 검색어 파라미터 -->
-		<c:set var="searchType" value="${param.search_type}" />
-		<c:set var="searchWord" value="${param.search_word}" />
+
 	<!-- 검색칸 -->
-	<form action="" name="search" method="post">
-		<select name="search_type">
-			<option value="GoodsNo" selected="selected">물품번호</option>
-			<option value="GoodsName">물품명</option>
+	<form action="../GoodsManage/goodslist" method="get">
+		<select name="searchType">
+			<option value="GoodsNo" <c:if test="${searchType eq GoodsNo}">selected="selected"</c:if>>물품번호</option>
+			<option value="GoodsName"<c:if test="${searchType eq GoodsName}">selected="selected"</c:if>>물품명</option>
 		</select> 
-		<input type="text" name="search_word"/> 
-		<input type="button"value="검색" id="btnSearch"/>
+		<input type="text" name="searchWord" value="${searchWord}"/> 
+		<input type="submit"value="검색" id="btnSearch"/>
 	</form>
 </body>
 </html>

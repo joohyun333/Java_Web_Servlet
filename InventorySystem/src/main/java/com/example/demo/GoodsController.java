@@ -19,13 +19,17 @@ public class GoodsController {
 	
 	//물품리스트
 	@RequestMapping(value= "GoodsManage/goodslist",method = RequestMethod.GET)
-	public ModelAndView goodsList(ModelAndView mav) {
+	public ModelAndView goodsList(GoodsDomain goods,ModelAndView mav) {
 		GenericXmlApplicationContext ctx=new GenericXmlApplicationContext("classpath*:applicationContext.xml");
 		goodsDaoImpl goodsDao =(goodsDaoImpl)ctx.getBean("goodsService");
 		//goodsDaoImpl =(noteDaoImpl)ctx.getBean("tradeGoodsService");
-		List<GoodsDomain> goodsList = goodsDao.goodsList();
-		mav.setViewName("GoodsManage/goodslist");
+ 		List<GoodsDomain> goodsList = goodsDao.goodsList(goods);
+ 		
 		mav.addObject("goodsList", goodsList);
+		mav.addObject("searchType",goods.getSearchType());
+		mav.addObject("searchWord",goods.getSearchWord());
+		mav.setViewName("GoodsManage/goodslist");
+		
 		ctx.close();
 		return mav;
 	}
@@ -82,5 +86,15 @@ public class GoodsController {
 		ctx.close();
 		return mav;
 	}
-	//물품번호 tradegoodslist에 보내기
+	// tradegoods join goods
+	@RequestMapping(value = "TradeGoodsManage/tradelist", method = RequestMethod.GET)
+	public ModelAndView getTradeList(ModelAndView mav) {
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath*:applicationContext.xml");
+		goodsDaoImpl goodsdao = (goodsDaoImpl) ctx.getBean("goodsService");
+		List<GoodsDomain> list = goodsdao.tradeList();
+		mav.addObject("TradeList", list);
+		mav.setViewName("TradeGoodsManage/tradelist");
+		ctx.close();
+		return mav;
+	}
 }

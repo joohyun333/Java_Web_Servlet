@@ -5,13 +5,64 @@
   
   <!-- namespace의 이름은 본인이 설정하면 된다. -->
 <mapper namespace="com.example.goods.goodsDao"> 
+	<resultMap type="com.example.domain.tradeGoodsDomain" id="tradeGoodsDomain">
+		<result property="goodsNo" column="goodsNo" />
+		<result property="dealNumber" column="dealNumber" />
+		<result property="classification" column="classification" />
+		<result property="amount" column="amount" />
+		<result property="totalprice" column="totalprice" />
+		<result property="date" column="date" />
+		<result property="cusName" column="cusName" />
+	</resultMap>
 
+	<resultMap type="com.example.domain.GoodsDomain" id="GoodsDomain">
+		<result property="goodsNo" column="goodsNo" />
+		<result property="goodsName" column="goodsName" />
+		<result property="goodsPrice" column="goodsPrice" />
+		<result property="goodsColor" column="goodsColor" />
+		<result property="brandName" column="brandName" />
+		<result property="size" column="size" />
+		<result property="manufacturer" column="manufacturer" />
+		<result property="totalAmount" column="totalAmount" />
+		
+		<result property="dealNumber" column="dealNumber" />
+		<result property="classification" column="classification" />
+		<result property="amount" column="amount" />
+		<result property="totalprice" column="totalprice" />
+		<result property="date" column="date" />
+		<result property="cusName" column="cusName" />	
+		
+		<collection property="goodsDomain" javaType="java.util.ArrayList" resultMap="tradeGoodsDomain" />
+	</resultMap>
+
+
+	<select id="tradeList" parameterType="com.example.domain.GoodsDomain" resultMap="GoodsDomain">
+		select
+			tg.dealNumber, tg.classification, tg.goodsNo, g.goodsName, g.size, g.goodsPrice,
+			tg.amount, tg.totalprice, g.goodsColor, g.brandName, g.manufacturer, tg.date	 
+		FROM
+			tradegoods tg
+		left join
+			goods g
+		on
+			tg.goodsNo = g.goodsNo
+		order by
+			tg.dealNumber
+	</select> 
+	
  <!-- 물품 목록-->
- <select id="goodsList" resultType="com.example.domain.GoodsDomain">
+ <select id="goodsList" parameterType="com.example.domain.GoodsDomain" resultType="com.example.domain.GoodsDomain">
    select
     goodsNo,goodsName,goodsColor,manufacturer,brandName,goodsPrice,size,totalAmount
   from
      goods
+  where 1 = 1
+  <if test='searchWord != null  and( searchType eq "GoodsNo".toString())'>
+	 and goodsNo = #{searchWord}
+  </if>
+  <if test='searchWord != null  and( searchType eq "GoodsName".toString())'>
+	and GoodsName = #{searchWord}
+  </if>
  </select>
  
  
