@@ -1,15 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>�ŷ�ó ����</title>
+<meta charset="UTF-8">
+<title>거래처 정보</title>
 </head>
 <body>
-	<h2>�ŷ�ó ����</h2>
+	<h2>거래처 정보</h2>
 	<hr />
-	<form action="/cus" method="post">
+	<form method="post">
 		<table>
 			<colgroup>
 				<col style="width: 5%;" />
@@ -19,14 +19,12 @@
 				<col style="width: 10%;" />
 			</colgroup>
 			<tr>
-				<td><label for="cusName">�ŷ�ó �̸� : <input type="text" name="cusName" id="cusName" value="${cusInfo.cusName}"></label></td>
-				<td><label for="cusName">Ÿ�� : <input type="text" name="classification" id="classification" value="${cusInfo.classification}"></label></td>
-				<td><label for="phoneNo">��ȭ��ȣ : <input type="text" name="phoneNo" id="phoneNo" value="${cusInfo.phoneNo}"></label></td>
-				<td><label for="address">�ּ�: <input type="text" name="address" id="address" value="${cusInfo.address}"></label></td>
+				<td>거래처 이름 : <input type="text" name="cusName" id="cusName" value="${cusInfo.cusName}"></td>
+				<td>타입 : <input type="text" name="classification" id="classification" value="${cusInfo.classification}"></td>
+				<td>전화번호 : <input type="text" name="phoneNo" id="phoneNo" value="${cusInfo.phoneNo}"></td>
+				<td>주소: <input type="text" name="address" id="address" value="${cusInfo.address}"></td>
 			</tr>
 		</table>
-		<input type="hidden" name="cusName" value="${cusName}" />
-		<button type="submit" class="btn btn-primary">���� ����</button>
 	</form>
 </body>
 </html>

@@ -4,74 +4,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>거래 입력</title>
+<!-- CSS -->
+<link href="${pageContext.request.contextPath}/CSS/tradelist.css" rel="stylesheet" type="text/css" />
+
 <script src="../js/script.js?ver=0.3"></script>
 <script type="text/javascript">
-function calcNow(){
-	inputlist.totalprice.value = calc_multiply(inputlist.amount.value, inputlist.price.value);
-}
-function calc_multiply(amount, price){
-    return amount * price;
-}
-
-//거래처 비워두고 추가를 눌렀을때 를 위한 스크립트
-window.onload = function(){
-document.getElementById("input").onclick=function(){
-	if(inputlist.cusName.value==""){
-		inputlist.cusName.focus();
-		alert("거래처를 입력하세요");
-		return;
+	function calcNow(){
+		inputlist.totalprice.value = calc_multiply(inputlist.amount.value, inputlist.price.value);
 	}
-	inputlist.submit();
-}
-}
+	function calc_multiply(amount, price){
+	    return amount * price;
+	}
+	
+	//거래처 비워두고 추가를 눌렀을때 를 위한 스크립트
+	window.onload = function(){
+		document.getElementById("input").onclick=function(){
+			if(inputlist.cusName.value==""){
+				inputlist.cusName.focus();
+				alert("거래처를 입력하세요");
+				return;
+			}
+			inputlist.submit();
+		}
+	}
 </script>
+</head>
 <body>
-	<!-- 파일을 전송하기 위한 enctype -->
-	<form name="inputlist" enctype="multipart/form-data" method="post" autocomplete="off">
-		<input type="button" id="main" name="main" onclick="location.href='../callback'" value="메인"></input> 
-		<input type="button" id="goods" name="goods" onclick="location.href='../GoodsManage/goodslist'" value="물품 관리"></input>
-		<input type="button" id="tradegoods" name="tradegoods" onclick="location.href='../TradeGoodsManage/tradelist'" value="물류 관리"></input>
-		<input type="button" id="information" name="info" onclick="location.href='../Imformation/goods'" value="정보 조회"></input>
-		<input type="button" id="customer" name="customer" onclick="location.href='../CustomersManage/selList'" value="고객 관리"></input>
-		<input type="button" id="statistics" name="statistics" onclick="location.href='../Statistics/customers'" value="통계 정보"></input>
-		<table style="width: 80%">
+<!-- 파일을 전송하기 위한 enctype -->
+<form name="inputlist" enctype="multipart/form-data" method="post" autocomplete="off">
+	<h1 id="title">재고관리프로그램</h1>
+	<div class="topnav">
+		<a href="../callback">메인</a>
+		<a href="../GoodsManage/goodslist">물품 관리</a>
+		<a href="../TradeGoodsManage/tradelist">물류 관리</a>
+		<a href="../Imformation/goods">정보 조회</a>
+		<a href="../CustomersManage/selList">고객 관리</a>
+		<a href="../Statistics/customers'">통계정보</a>
+	</div>
+	
+	<div id="wrap2">
+		<h1>거래 입력</h1>
+		<table>
 			<tr>
-				<th>물품번호</th>
+				<th>물품 번호</th>
 				<th>물품명</th>
 				<th>거래 구분</th>
 				<th>수 량</th>
-				<th>물건가격</th>
+				<th>물품 가격</th>
 				<th> </th>
 				<th>총 가 격</th>
 				<th>거 래 처</th>
 			</tr>
-			<td><input type="text" name= "goodNo" value = "${param.goodsNo}"></td>
-			<td><input type="text" value = "${param.goodsName}"></td> <!-- 알아보기 쉬우라고 첨가함. -->
-			<td valgn="top">
-			<select name="classification">
+			<tr>
+				<th><input type="text" name= "goodNo" value = "${param.goodsNo}"></th>
+				<th><input type="text" value = "${param.goodsName}"></th> <!-- 알아보기 쉬우라고 첨가함. -->
+				<th><select name="classification">
 					<option value="입고">입고</option>
 					<option value="출고">출고</option>
 					<option value="입고후반품">입고 후 반품</option>
 					<option value="출고후반품">출고 후 반품</option>
-			</select>
-			</td>
-			<td><input type="text" name="amount" ></td>
-            <td><input type="text" name="price" value = "${param.goodsPrice}"/></td>
-            <td><input type="button" value="=" onClick="calcNow()"/></td>
-           	<td><input type="text" name="totalprice" /></td>
-			<td><input type="text" id = "cusName" name="cusName"></td>
-			<tr>
-			<!-- 거래처 파라미터 -->
-				<td colspan="2"><br/> 
-				<span style="float: right;">
-						<button type="submit" id="input">저장</button>
-						<button type="button" onclick="location.href='../GoodsManage/goodslist'">취소</button>
-				</span>
-				</td>
+				</select></th>
+				<th><input type="text" name="amount" ></th>
+				<th><input type="text" name="price" value = "${param.goodsPrice}"/></th>
+				<th><input type="button" value="=" onClick="calcNow()"/></th>
+				<th><input type="text" name="totalprice" /></th>
+				<th><input type="text" id="cusName" name="cusName"></th>
 			</tr>
 		</table>
-	</form>
+		
+		</br>
+		<div id=input_group>
+			<span style="float: right;">
+				<button type="submit" id="input">저장</button>
+				<button type="button" id="cancle" onclick="location.href='../GoodsManage/goodslist'">취소</button>
+			</span>
+		</div>
+	</div>
+</form>
 </body>
 </html>

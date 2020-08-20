@@ -10,6 +10,7 @@
    <typeAlias type="com.example.domain.GoodsDomain" alias="GoodsDomain"/>
    <typeAlias type="com.example.domain.NoteDomain" alias="NoteDomain"/>
    <typeAlias type="com.example.domain.tradeGoodsDomain" alias="tradeGoodsDomain"/>
+   <!-- <typeAlias type="com.example.domain.MemberDomain" alias="memberDomain"/> -->
  </typeAliases>
  
  <mappers>
@@ -17,6 +18,7 @@
    <mapper resource="com/example/goods/goodsMapper.xml"/>
    <mapper resource="com/example/note/noteMapper.xml"/>
    <mapper resource="com/example/tradeGoods/tradeGoodsMapper.xml"/>
+<!--    <mapper resource="com/example/Login/loginMapper.xml"/> -->
  </mappers>
  
 </configuration>  

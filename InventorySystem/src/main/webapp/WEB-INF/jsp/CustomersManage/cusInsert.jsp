@@ -1,15 +1,34 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>�ŷ�ó �߰�</title>
+<meta charset="UTF-8">
+<title>거래처 추가</title>
 </head>
+<!--
+<script>
+	var type = document.getElementsByName('classification');
+	var type_value;
+	for(var i = 0; i < type.length; i++) {
+		if(type[i].checked) {
+			type_value = type[i].value;
+			}
+	}
+</script>
+-->
 <body>
-	<h2>�ŷ�ó �߰�</h2>
+	<h2>거래처 추가</h2>
 	<hr />
-	<form action="/cusInsertStart" method="post">
+	<input type="button" id="main" name="main" onclick="location.href='../Main/main'" value="메인"></input>
+	<input type="button" id="goods" name="goods" onclick="location.href='../GoodsManage/goodslist'" value="물품 관리"></input>
+	<input type="button" id="tradegoods" name="tradegoods" onclick="location.href='../TradeGoodsManage/tradelist'" value="물류 관리"></input>
+	<input type="button" id="information" name="info" onclick="location.href='../Imformation/goods'" value="정보 조회"></input>
+	<input type="button" id="customer" name="customer" onclick="location.href='../CustomersManage/cusMain'" value="거래처 관리"></input>
+	<input type="button" id="statistics" name="statistics" onclick="location.href='../Statistics/customers'" value="통계 정보"></input>
+	<hr/>
+	
+	<form action="/CustomersManage/cusInsert" method="post">
 		<table>
 			<colgroup>
 				<col style="width: 5%;" />
@@ -19,17 +38,20 @@
 				<col style="width: 10%;" />
 			</colgroup>
 			<tr>
-				<td><label for="cusName">�ŷ�ó �̸� : <input type="text" name="cusName" id="cusName"></label></td>
-				<td>
-					<label for="classification">Ÿ�� : </label>
-					<input type="radio" name="classification" id="classification" value="sel"><label>�Ǹ�</label>
-					<input type="radio" name="classification" id="classification" value="buy"><label>����</label>				
+				<td>거래처 이름 : <input type="text" name="cusName"></td>
+				<td>타입 : 
+					<input type="radio" name="classification" value="output">판매
+					<input type="radio" name="classification" value="input">구매
 				</td>
-				<td><label for="phoneNo">��ȭ��ȣ : <input type="text" name="phoneNo" id="phoneNo"></label></td>
-				<td><label for="address">�ּ�: <input type="text" name="address" id="address"></label></td>
+				<td>전화번호 : <input type="text" name="phoneNo"></td>
+				<td>주소: <input type="text" name="address"></td>
+			</tr>
+			<tr>
+				<td>
+					<button type="submit">거래처 저장</button>
+				</td>
 			</tr>
 		</table>
-		<input type="submit" value="cusInsert">
 	</form>
 </body>
 </html>

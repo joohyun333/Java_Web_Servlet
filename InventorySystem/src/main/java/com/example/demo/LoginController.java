@@ -38,9 +38,8 @@ public class LoginController {
 	}
 
 	// 테스트용
-	@RequestMapping(value = "/Login/login", method = RequestMethod.GET)
-	public String login(Model model) {
-
-		return "Login/login";
+	@RequestMapping(value = "/mainCallback", method = RequestMethod.GET)
+	public String mainCallback(Model model) {
+		return "/mainCallback";
 	}
 }

@@ -36,6 +36,12 @@ public class customersDaoImpl implements customersDao {
 		return cusDao.buyRead(cusName);
 	}
 
+	// 거래처 상세 정보
+	@Override
+	public CustomersDomain cusInfo(String cusName) {
+		return cusDao.cusInfo(cusName);
+	}
+
 	// 거래처 추가
 	@Override
 	public void cusInsert(CustomersDomain cus) {
@@ -50,14 +56,8 @@ public class customersDaoImpl implements customersDao {
 
 	// 거래처 삭제
 	@Override
-	public void cusDelete(CustomersDomain cus) {
-		cusDao.cusDelete(cus);
-	}
-	
-	// 거래처 상세 정보
-	@Override
-	public CustomersDomain cusInfo(String cusName) {
-		return cusDao.cusInfo(cusName);
+	public void cusDelete(String cusName) {
+		cusDao.cusDelete(cusName);
 	}
 
 }

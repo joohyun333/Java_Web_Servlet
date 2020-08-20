@@ -32,7 +32,14 @@
 	width: 1000px;
 }
 
+#wrap2 {
+	margin: auto auto;
+	text-align: center;
+	width: 1200px;
+}
+
 table {
+	width: 100%;
 	margin-top: 50px;
 }
 
@@ -43,17 +50,43 @@ th {
 	padding-right: 10px;
 }
 
+/* tradelist.jsp의 거래 추가 */
 #plus {
-	position: absolute;
+	/* 버튼 둥굴게 */
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	
+	/*position: absolute;*/
+	width: 150px;
 	right: 0;
-	margin-right: 400px;
+	border: none;
+	cursor: pointer;
+	font-size: 24px;
+}
+
+/* tradelist.jsp의 삭제 */
+#delete {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	
 	border: none;
 	cursor: pointer;
 	font-size: 20px;
 }
 
-#del {
+/* inputlist.jsp의 저장과 취소 */
+#input_group button{
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	
 	border: none;
+	width: 120px;
 	cursor: pointer;
-	font-size: 20px
+	font-size: 20px;
 }

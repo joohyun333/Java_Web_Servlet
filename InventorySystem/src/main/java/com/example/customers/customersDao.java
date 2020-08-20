@@ -13,8 +13,8 @@ public interface customersDao {
 	public List<CustomersDomain> buyList();				//구매 거래처 리스트
 	public CustomersDomain buyRead(String cusName);		//구매 거래처 내역 읽어오기
 	
+	public CustomersDomain cusInfo(String cusName);		//거래처 상세정보
 	public void cusInsert(CustomersDomain cus);		//거래처 추가
 	public void cusUpdate(CustomersDomain cus);		//거래처 수정
-	public void cusDelete(CustomersDomain cus);		//거래처 삭제
-	public CustomersDomain cusInfo(String cusName);		//거래처 상세정보
+	public void cusDelete(String cusName);		//거래처 삭제
 }

@@ -5,33 +5,43 @@
 
 	<!-- 거래처(판매) 리스트 -->
 	<select id="selList" resultType="com.example.domain.CustomersDomain">
-		select cusName, phoneNo, address
+		select cusName, classification, phoneNo, address
 		from customers
 		where classification like '출고'
 	</select>
 	
 	<!-- 거래처(판매) 리스트 클릭 했을 때 거래 목록 출력 -->
 	<select id="selRead" parameterType="String" resultType="com.example.domain.CustomersDomain">
-		select date, classification, goodsName, amount, totalPrice
+		select dealNumber, date, classification, goodsName, amount, totalPrice
 		from tradeGoods
 		where cusName=#{cusName}
 	</select>
 	
+	
+	
 	<!-- 거래처(구매) 리스트 -->
 	<select id="buyList" resultType="com.example.domain.CustomersDomain">
-		select cusName, phoneNo, address
+		select cusName, classification, phoneNo, address
 		from customers
-		where classification like 'input'
+		where classification like '입고'
 	</select>
 	
 	<!-- 거래처(구매) 리스트 클릭 했을 때 거래 목록 출력 -->
 	<select id="buyRead" parameterType="String" resultType="com.example.domain.CustomersDomain">
-		select date, classification, goodsName, amount, totalPrice
+		select dealNumber, date, classification, goodsName, amount, totalPrice
 		from tradeGoods
 		where cusName=#{cusName} 
 	</select>
 	
-
+	
+	
+	<!-- 거래처 상세 정보 -->
+	<select id="cusInfo" resultType="com.example.domain.CustomersDomain">
+		select cusName, classification, phoneNo, address
+		from customers
+		where cusName=#{cusName}
+	</select>
+	
 	<!-- 거래처 추가 -->
 	<insert id="cusInsert" parameterType="com.example.domain.CustomersDomain">
 		insert into
@@ -52,11 +62,5 @@
 		where cusName=#{cusName}
 	</delete>
 	
-	<!-- 거래처 상세 정보 -->
-	<select id="cusInfo" resultType="com.example.domain.CustomersDomain">
-		select cusName, phoneNo, address
-		from customers
-		where cusName=#{cusName}
-	</select>
 	
 </mapper>

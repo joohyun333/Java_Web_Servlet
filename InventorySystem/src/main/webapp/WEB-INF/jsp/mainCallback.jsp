@@ -1,47 +1,42 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.*" %>
 <%@ page import="com.example.Main.Weather" %>
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="java.security.SecureRandom" %>
 <%@ page import="java.math.BigInteger" %>
-<!DOCTYPE html>
+
 <html>
 <head>
-
-   <title>재고관리프로그램</title>
-   <!-- CSS -->
-   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Main.css">
-   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/CSS/Main.css"></link>
 </head>
-
 <body>
-
-  <!-- 메뉴 -->
-<!-- 네이버아이디로로그인 버튼 노출 영역 -->
-  <div id="naver_id_login"></div>
-   <script type="text/javascript">
-  	var naver_id_login = new naver_id_login("1iFSt9oeBx7ezbHyZO4Z", "http://localhost/InventorySystem/callback");
-  	var state = naver_id_login.getUniqState();
-  	naver_id_login.setButton("white", 2,40);
-  	naver_id_login.setDomain("http://localhost/InventorySystem/Main/main");
-  	naver_id_login.setState(state);
-  	naver_id_login.init_naver_id_login();
-    window.opener.location.reload(); 
-  </script>
-   <button type="button" onclick="location.href='/InventorySystem/GoodsManage/goodslist'">물품관리</button>
+<button type="button" onclick="location.href='/InventorySystem/GoodsManage/goodslist'">물품관리</button>
    <button type="button" onclick="location.href='/InventorySystem/TradeGoodsManage/tradelist'">물류관리</button>
    <button type="button" onclick="location.href='/InventorySystem/Imformation/deal'">정보조회</button>
-   <button type="button" onclick="location.href='/InventorySystem/CustomersManage/cusMain'">고객관리</button>
+   <button type="button" onclick="location.href='/InventorySystem/CustomersManage/selList'">고객관리</button>
    <button type="button" onclick="location.href='/InventorySystem/Statistics/customers'">통계정보</button>
+
   <!-- 메모장 -->
    <form>
+   <% 
+	request.setCharacterEncoding("euc-kr"); 
+	String email = request.getParameter("email");
+	String nickname = request.getParameter("nickname");
+	String name = request.getParameter("name");
+%>
+<h2><%=email %>님 환영합니다.</h2>
      <div class="Main">
-      <h1>메모장</h1>  
-      <td><input type="text" value = ""></td>
+      <h1>메모장</h1>  <td><input type="text" value = ""></td>
       <button type="button" id="write" onclick="location.href='/InventorySystem/Main/write'">작성</button>
+       
       <hr/>
+             
       <table>
         <thead>
         <tr>
@@ -141,7 +136,5 @@
      
 %> 
 
-
- 
 </body>
 </html>

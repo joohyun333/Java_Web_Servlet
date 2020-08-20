@@ -1,11 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    
-<!-- <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
- -->
  <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -87,7 +80,15 @@
 <bean id="tradeGoodsService" class="com.example.tradeGoods.tradeGoodsImpl">
    <property name="tradeGoodsDao" ref="tradeGoodsMapper"/>
 </bean> 
+
+<!-- Login table -->
+<!-- <bean id="loginMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+<property name="mapperInterface" value="com.example.Login.loginDao"/>
+<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+</bean>
+
+<bean id="LoginService" class="com.example.Login.loginDaoImpl">
+   <property name="loginDao" ref="loginMapper"/>
+</bean>  -->
 </beans>
-
-
 
