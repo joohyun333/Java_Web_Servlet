@@ -15,7 +15,7 @@
 <form name="tradelist" enctype="multipart/form-data" method="post">
 	<h1 id="title">재고관리프로그램</h1>
 	<% if (session.getAttribute("email") == null){
-	out.println("<a href= '/InventorySystem/Main/main'>로그인이 안되었습니다.</a>/br>");
+	out.println("<a href= '/InventorySystem/Main/main'>로그인이 안되었습니다.</a></br>");
 }else{
 	String email = (String)session.getAttribute("email");
 	out.println(email+"님 반갑습니다.</br></br>");

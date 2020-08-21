@@ -20,7 +20,7 @@
 	<input type="button" id="tradegoods" name="tradegoods" onclick="location.href='../TradeGoodsManage/tradelist'" value="물류 관리"></input>
 	<input type="button" id="information" name="info" onclick="location.href='../Imformation/goods'" value="정보 조회"></input>
 	<input type="button" id="customer" name="customer" onclick="location.href='../CustomersManage/cusMain'" value="거래처 관리"></input>
-	<input type="button" id="statistics" name="statistics" onclick="location.href='../Statistics/customers'" value="통계 정보"></input>
+	<input type="button" id="statistics" name="statistics" onclick="location.href='../Statistics/customers'" value=""></input>
 	<hr/>
 	<input type="button" id="insert" name="insert" onclick="location.href='../CustomersManage/cusInsert'" value="거래처 추가"></input>
 	<table>

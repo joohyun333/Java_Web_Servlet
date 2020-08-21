@@ -51,7 +51,7 @@
   	var naver_id_login = new naver_id_login("1iFSt9oeBx7ezbHyZO4Z", "http://localhost/InventorySystem/callback");
   	var state = naver_id_login.getUniqState();
   	naver_id_login.setButton("white", 20 ,80);
-  	naver_id_login.setDomain("http://localhost/InventorySystem/Main/main");
+  	naver_id_login.setDomain("http://localhost/");
   	naver_id_login.setState(state);
   	naver_id_login.init_naver_id_login();
     window.opener.location.reload(); 

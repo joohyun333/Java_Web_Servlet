@@ -12,6 +12,7 @@
 <script type="text/javascript">
 	function calcNow(){
 		inputlist.totalprice.value = calc_multiply(inputlist.amount.value, inputlist.price.value);
+		inputlist.totalAmount.value = calc(inputlist.tAmount.value, inputlist.price.value);
 	}
 	function calc_multiply(amount, price){
 	    return amount * price;
@@ -23,11 +24,12 @@
 			if(inputlist.cusName.value==""){
 				inputlist.cusName.focus();
 				alert("거래처를 입력하세요");
-				return;
+				return "TradeGoodsManage/inputlist";
 			}
 			inputlist.submit();
 		}
 	}
+	
 </script>
 </head>
 <body>
@@ -77,6 +79,14 @@
 				<td><input type="button" value="=" onClick="calcNow()"/></td>
 				<td><input type="text" id="totalprice" name="totalprice" style="width: 90%;"/></td>
 				<td><input type="text" id="cusName" name="cusName" style="width: 90%;"></td>
+			</tr>
+			<tr>
+				<th>물품 기존 수량</th>
+				<th>거래 후 수량</th>
+			</tr>
+			<tr>
+				<td><input type="text" id="tAmount" name="tAmount" style="width: 90%;" value = "${param.totalAmount}"/></td>
+				<td><input type="text" id="totalAmount" name="totalAmount" style="width: 90%;" value = ""/></td>
 			</tr>
 		</table>
 		
