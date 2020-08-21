@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.customers.customersDao">
+
+	<resultMap type="com.example.domain.tradeGoodsDomain" id="tradeGoodsDomain">
+		<result column="dealNumber" property="dealNumber"></result>
+		<result column="date" property="date"></result>
+		<result column="classification" property="classification"></result>
+		<result column="amount" property="amount"></result>
+		<result column="totalprice" property="totalprice"></result>
+	</resultMap>
+	
+	
+	<!-- 거래처(판매) 리스트 -->
+	<select id="selList" resultType="com.example.domain.CustomersDomain">
+		select cusName, classification, phoneNo, address
+		from customers
+		where classification like '출고'
+	</select>
+	
+	<!-- 거래처(판매) 리스트 클릭 했을 때 거래 목록 출력 -->
+	<select id="selRead" resultMap="tradeGoodsDomain">
+		select c.cusName, tg.dealNumber, tg.date, tg.classification, tg.amount, tg.totalprice
+		from customers c right join tradeGoods tg
+		on c.cusName = tg.cusName
+		where c.cusName=#{c.cusName}
+		order by tg.date desc
+	</select>
+	
+	
+	
+	<!-- 거래처(구매) 리스트 -->
+	<select id="buyList" resultType="com.example.domain.CustomersDomain">
+		select cusName, classification, phoneNo, address
+		from customers
+		where classification like '입고'
+	</select>
+	
+	<!-- 거래처(구매) 리스트 클릭 했을 때 거래 목록 출력 -->
+	<select id="buyRead" resultMap="tradeGoodsDomain">
+		select c.cusName, tg.dealNumber, tg.date, tg.classification, tg.amount, tg.totalprice
+		from customers c right join tradeGoods tg
+		on c.cusName = tg.cusName
+		order by tg.date desc
+	</select>
+	
+	
+	
+	<!-- 거래처 상세 정보 -->
+	<select id="cusInfo" resultType="com.example.domain.CustomersDomain">
+		select cusName, classification, phoneNo, address
+		from customers
+		where cusName=#{cusName}
+	</select>
+	
+	<!-- 거래처 추가 -->
+	<insert id="cusInsert" parameterType="com.example.domain.CustomersDomain">
+		insert into
+		customers(cusName, classification, phoneNo, address)
+		values(#{cusName}, #{classification}, #{phoneNo}, #{address})
+	</insert>
+	
+	<!-- 거래처 수정 -->
+	<update id="cusUpdate" parameterType="com.example.domain.CustomersDomain">
+		update customers
+		set cusName=#{cusName}, classification=#{classification}, phoneNo=#{phoneNo}, address=#{address}
+		where cusName=#{cusName}
+	</update>
+	
+	<!-- 거래처 삭제 *주의할 점 : 거래처 삭제된다고 해서 내역이 삭제되면 안됨* -->
+	<delete id="cusDelete" parameterType="com.example.domain.CustomersDomain">
+		delete from customers
+		where cusName=#{cusName}
+	</delete>
+	
+	
+</mapper>
