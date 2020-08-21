@@ -6,8 +6,7 @@
 <head>
 <title>물품등록</title>
 <!-- CSS -->
-<link href="${pageContext.request.contextPath}/CSS/GoodsRegister.css"
-	rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/CSS/tradelist.css" rel="stylesheet" type="text/css" /> 
 </head>
 <body>
 	<form name="GoodsRegister" action="GoodsRegister"
@@ -22,57 +21,45 @@
 		}
 		%>
 		<div class="topnav">
-			<a href="../mainCallback">메인</a> 
-			<a href="goodslist">물품관리</a> 
-			<a href="../TradeGoodsManage/tradelist">물류 관리</a> 
-			<a href="../Imformation/goods">정보 조회</a> 
-			<a href="../CustomersManage/selList">고객 관리</a> 
-			<a href="../Statistics/customers'">통계정보</a>
+			<a href="../mainCallback">메인</a> <a href="goodslist">물품관리</a> <a
+				href="../TradeGoodsManage/tradelist">물류 관리</a> <a
+				href="../Imformation/goods">정보 조회</a> <a
+				href="../CustomersManage/selList">고객 관리</a> <a
+				href="../Statistics/customers'">통계정보</a>
 		</div>
 
 		<!--  	<form action="../GoodsManage/GoodsRegister" method="post">-->
 		<div id="wrap">
 			<table>
 				<tr>
-					<td>물품번호</td>
+					<th>물품 번호</th>
+					<th>물품명</th>
+					<th>색상</th>
+					<th>제조사</th>
+					<th>브랜드</th>
+					<th>가격</th>
+					<th>사이즈</th>
+					<th>수량</th>
+				</tr>
+				<tr>
 					<td><input type="text" name="goodsNo"></td>
-				</tr>
-				<tr>
-					<td>물품명</td>
 					<td><input type="text" name="goodsName"></td>
-				</tr>
-				<tr>
-					<td>색상</td>
 					<td><input type="text" name="goodsColor"></td>
-				</tr>
-				<tr>
-					<td>제조사</td>
 					<td><input type="text" name="manufacturer"></td>
-				</tr>
-				<tr>
-					<td>브랜드</td>
 					<td><input type="text" name="brandName"></td>
-				</tr>
-				<tr>
-					<td>가격</td>
 					<td><input type="text" name="goodsPrice"></td>
-				</tr>
-				<tr>
-					<td>사이즈</td>
 					<td><input type="text" name="size"></td>
-				</tr>
-				<tr>
-					<td>수량</td>
 					<td><input type="text" name="totalAmount"></td>
 				</tr>
-				<tr>
-					<td colspan="2">
-						<button type="submit">입력</button>
-					</td>
-				</tr>
 			</table>
+			<div id=input_group>
+				<span style="float: right;">
+					<button type="submit" id="input">입력</button>
+					<button type="button" id="cancle"
+						onclick="location.href='../GoodsManage/goodslist'">취소</button>
+				</span>
+			</div>
 		</div>
 	</form>
-
 </body>
 </html>

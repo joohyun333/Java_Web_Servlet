@@ -12,10 +12,18 @@
 <script type="text/javascript">
 	function calcNow(){
 		inputlist.totalprice.value = calc_multiply(inputlist.amount.value, inputlist.price.value);
-		inputlist.totalAmount.value = calc(inputlist.tAmount.value, inputlist.price.value);
+		inputlist.totalAmount.value = calc(inputlist.tAmount.value, inputlist.amount.value, inputlist.classification.value);
 	}
 	function calc_multiply(amount, price){
 	    return amount * price;
+	}
+	function calc(tamount, amount, classification){
+		if (classification=="입고" || classification=="출고후반품"){
+			return Number(tamount) + Number(amount);
+		}
+		else{
+			return Number(tamount) - Number(amount);
+		}
 	}
 	
 	//거래처 비워두고 추가를 눌렀을때 를 위한 스크립트
@@ -26,7 +34,6 @@
 				alert("거래처를 입력하세요");
 				return "TradeGoodsManage/inputlist";
 			}
-			inputlist.submit();
 		}
 	}
 	
@@ -86,7 +93,7 @@
 			</tr>
 			<tr>
 				<td><input type="text" id="tAmount" name="tAmount" style="width: 90%;" value = "${param.totalAmount}"/></td>
-				<td><input type="text" id="totalAmount" name="totalAmount" style="width: 90%;" value = ""/></td>
+				<td><input type="text" id="totalAmount" name="totalAmount" value = ""/></td>
 			</tr>
 		</table>
 		

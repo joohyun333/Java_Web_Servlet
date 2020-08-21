@@ -6,8 +6,7 @@
 <head>
 <title>물품수정</title>
 <!-- CSS -->
-<link href="${pageContext.request.contextPath}/CSS/GoodsRegister.css"
-	rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/CSS/tradelist.css" rel="stylesheet" type="text/css" /> 
 </head>
 <body>
 	<!--  <form name="GoodsModify" action="GoodsModify" enctype="multipart/form-data" method="post"> -->
@@ -29,50 +28,37 @@
 			<a href="../Statistics/customers'">통계정보</a>
 	</div>
 
-	<div id="wrap">
-		<form action="../GoodsManage/goodsModify" method="post">
-			<table>
-				<tr>
-					<td>물품번호</td>
-					<td><input type="text" name="goodsNo" value="${goods.goodsNo}"></td>
-				</tr>
-				<tr>
-					<td>물품명</td>
-					<td><input type="text" name="goodsName"
-						value="${goods.goodsName}"></td>
-				</tr>
-				<tr>
-					<td>색상</td>
-					<td><input type="text" name="goodsColor"
-						value="${goods.goodsColor}"></td>
-				</tr>
-				<tr>
-					<td>제조사</td>
-					<td><input type="text" name="manufacturer"
-						value="${goods.manufacturer}"></td>
-				</tr>
-				<tr>
-					<td>가격</td>
-					<td><input type="text" name="goodsPrice"
-						value="${goods.goodsPrice}"></td>
-				</tr>
-				<tr>
-					<td>사이즈</td>
-					<td><input type="text" name="size" value="${goods.size}"></td>
-				</tr>
-				<tr>
-					<td>수량</td>
-					<td><input type="text" name="totalAmount"
-						value="${goods.totalAmount}"></td>
-				</tr>
-				<tr>
-					<td colspan="2">
-						<button type="submit">입력</button>
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div>
-
+	<div id="wrap" >
+	 <form action="../GoodsManage/goodsModify" method="post">  
+	 <table>
+			<tr>
+				<th>물품 번호</th>
+				<th>물품명</th>
+				<th>색상</th>
+				<th>제조사</th>
+				<th>가격</th>
+				<th>사이즈</th>
+				<th>수량</th>
+			</tr>
+			<tr>
+				<td><input type="text" name="goodsNo" value="${goods.goodsNo}"></td>
+				<td><input type="text" name="goodsName" value="${goods.goodsName}"></td>
+				<td><input type="text" name="goodsColor" value="${goods.goodsColor}"></td>
+				<td><input type="text" name="manufacturer" value="${goods.manufacturer}"></td>
+				<td><input type="text" name="goodsPrice" value="${goods.goodsPrice}"></td>
+				<td><input type="text" name="size" value="${goods.size}"></td>
+				<td><input type="text" name="totalAmount" value="${goods.totalAmount}"></td>
+			</tr>
+		</table>
+		<div id=input_group>
+			<span style="float: right;">
+				<button type="submit" id="input">수정</button>
+				<button type="button" id="cancle" onclick="location.href='../GoodsManage/goodslist'">취소</button>
+			</span>
+		</div>
+	
+	 </form>
+	 </div>
+	 
 </body>
 </html>

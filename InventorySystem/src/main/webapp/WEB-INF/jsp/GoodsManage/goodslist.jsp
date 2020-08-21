@@ -6,8 +6,7 @@
 <head>
 <title>물품조회</title>
 <!-- CSS -->
-<link href="${pageContext.request.contextPath}/CSS/goodslist.css"
-	rel="stylesheet" type="text/css" />
+<link href="${pageContext.request.contextPath}/CSS/tradelist.css" rel="stylesheet" type="text/css" /> 
 </head>
 <body>
 	<form name="goodslist" action="goodslist" enctype="multipart/form-data"
