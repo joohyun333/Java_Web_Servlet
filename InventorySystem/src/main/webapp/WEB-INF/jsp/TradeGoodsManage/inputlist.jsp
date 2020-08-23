@@ -41,7 +41,7 @@
 </head>
 <body>
 <!-- 파일을 전송하기 위한 enctype -->
-<form name="inputlist" enctype="multipart/form-data" method="post" autocomplete="off">
+<form name="inputlist"  enctype="multipart/form-data" method="POST" autocomplete="off">
 	<h1 id="title">재고관리프로그램</h1>
 	<% if (session.getAttribute("email") == null){
 	out.println("<a href= '/InventorySystem/Main/main'>로그인이 안되었습니다.</a></br>");

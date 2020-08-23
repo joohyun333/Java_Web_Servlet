@@ -26,27 +26,6 @@ public class tradeGoodsImpl implements tradeGoodsDao {
 
 
 	}
-
-	
-	@Override // 출고 처리
-	public void output(tradeGoodsDomain domain) {
-		tradeGoodsDao.output(domain);
-	}
-
-	
-	@Override // 입고했던 물품 반품 처리
-	public void backIn(tradeGoodsDomain domain) {
-		
-		tradeGoodsDao.backIn(domain);
-
-	}
-
-	@Override // 출고했던 물품 반품 처리
-	public void backOut(tradeGoodsDomain domain) {
-		
-		tradeGoodsDao.backOut(domain);
-
-	}
 	
 	@Override // 내역삭제
 	public void delete(int dealNumber) {

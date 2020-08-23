@@ -96,27 +96,6 @@
        goodsNo=#{goodsNo}
  </delete>
  
- 
- <!-- totalAmount에 amount 더하기 -->
-<update id="inputTotalAmount">
-	update
-		tradegoods as tg, goods as g
-	set
-		g.totalAmount = g.totalAmount + tg.amount
-	where
-		classification="입고" or classification="출고반품"  and g.goodsNo=tg.goodsNo and dealNumber=(Select max(dealNumber) from tradegoods)
-</update>
-
-
-<!-- totalAmount에서 amount 빼기 -->
-<update id="outputTotalAmount">
-	update
-		tradegoods as tg, goods as g
-	set
-		g.totalAmount = g.totalAmount - tg.amount
-	where
-		classification="출고" or classification="입고반품" and g.goodsNo=tg.goodsNo and dealNumber=(Select max(dealNumber) from tradegoods)
-</update>
 
 <!-- 해당물품번호의  물품명,색상,사이즈구하기-->
 <select id="goodsInfoIdx" parameterType="String" resultType="com.example.domain.GoodsDomain">
@@ -138,5 +117,13 @@ where
    goodsNo=#{goodsNo}
 
 </select>
+ <!-- totalAmount 수정 -->
+ <update id="totalAmountUpdate" parameterType="com.example.domain.GoodsDomain">
+ UPDATE goods
+	SET
+	totalAmount = #{totalAmount}
+	WHERE goodsNo = #{goodsNo}
+ </update>
+
 </mapper>
 

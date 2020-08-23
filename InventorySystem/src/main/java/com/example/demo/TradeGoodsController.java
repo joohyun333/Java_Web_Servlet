@@ -24,32 +24,19 @@ public class TradeGoodsController {
 		return mav;
 	}
 	
-	@RequestMapping(value = "/TradeGoodsManage/inputlist", method = {RequestMethod.POST})
-	public ModelAndView postinputList(ModelAndView mav, tradeGoodsDomain domain) {
+	@RequestMapping(value = "/TradeGoodsManage/inputlist", method = RequestMethod.POST)
+	public ModelAndView postinputList(ModelAndView mav, GoodsDomain gdomain ,tradeGoodsDomain domain) {
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath*:applicationContext.xml");
 		tradeGoodsImpl tradeGoodsdao = (tradeGoodsImpl) ctx.getBean("tradeGoodsService");
 		goodsDaoImpl goodsdao = (goodsDaoImpl) ctx.getBean("goodsService");
 		tradeGoodsdao.input(domain);
-		goodsdao.inputTotalAmount();
+		goodsdao.totalAmountUpdate(gdomain);
 		mav.setViewName("/TradeGoodsManage/inputlist");
 		ctx.close();
 		return mav;
 	}
 	// 출고처리
 
-	// 반품처리
-
-//	// goods join tradegoods리스트
-//	@RequestMapping(value = "/TradeGoodsManage/tradelist", method = RequestMethod.GET)
-//	public ModelAndView getTradegoodsList(ModelAndView mav) {
-//		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath*:applicationContext.xml");
-//		tradeGoodsImpl tradeGoodsdao = (tradeGoodsImpl) ctx.getBean("tradeGoodsService");
-//		List<tradeGoodsDomain> list = tradeGoodsdao.tradelist();
-//		mav.addObject("TradeList", list);
-//		mav.setViewName("/TradeGoodsManage/tradelist");
-//		ctx.close();
-//		return mav;
-//	}
 	// tradegoodslist 삭제
 	@RequestMapping(value= "/TradeGoodsManage/tradeGoodsDelete",method = RequestMethod.GET)
 	public ModelAndView TradegoodsDelete(tradeGoodsDomain tradegoodsDomain,ModelAndView mav) {
