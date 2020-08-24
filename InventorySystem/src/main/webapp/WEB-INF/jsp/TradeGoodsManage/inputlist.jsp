@@ -108,9 +108,10 @@
 			</br>
 			<div id=input_group>
 				<span style="float: right;">
+				<button type="button" id="cancle" onclick="location.href='../TradeGoodsManage/tradelist'">거래리스트</button>
+					<button type="button" id="cancle" onclick="location.href='../GoodsManage/goodslist'">물품리스트</button>
 					<button type="submit" id="inputs">저장</button>
-					<button type="button" id="cancle"
-						onclick="location.href='../GoodsManage/goodslist'">취소</button>
+					<button type="button" id="cancle" onclick="location.href='../GoodsManage/goodslist'">취소</button>
 				</span>
 			</div>
 		</div>
