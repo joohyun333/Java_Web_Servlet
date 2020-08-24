@@ -93,3 +93,44 @@ td {
 	cursor: pointer;
 	font-size: 20px;
 }
+
+#modify {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	
+	border: none;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+#input {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	
+	border: none;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+#footer{	
+	background-color:gray;
+	height:100px;
+}
+
+.foo_div1{
+	text-align:center;
+}
+
+.foo_div1 span{
+	font-size:15px;
+	color:white;
+}
+
+.foo_div1 p {
+	margin-top:5px;
+	color:white;
+}

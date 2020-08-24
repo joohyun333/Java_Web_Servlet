@@ -39,7 +39,7 @@
 	<select id="tradeList" parameterType="com.example.domain.GoodsDomain" resultMap="GoodsDomain">
 		select
 			tg.dealNumber, tg.classification, tg.goodsNo, g.goodsName, g.size, g.goodsPrice,
-			tg.amount, tg.totalprice, g.goodsColor, g.brandName, g.manufacturer, tg.date	 
+			tg.amount, tg.totalprice, g.goodsColor, g.brandName, tg.cusName, tg.date	 
 		FROM
 			tradegoods tg
 		left join
@@ -47,7 +47,7 @@
 		on
 			tg.goodsNo = g.goodsNo
 		order by
-			tg.dealNumber
+			tg.dealNumber DESC
 	</select> 
 	
  <!-- 물품 목록-->
