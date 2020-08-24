@@ -17,15 +17,26 @@ import com.example.tradeGoods.tradeGoodsImpl;
 @Controller
 public class TradeGoodsController {
 	// 물품선택된 리스트 구현
-	// 입고처리
-	@RequestMapping(value = "/TradeGoodsManage/inputlist", method = {RequestMethod.GET})
-	public ModelAndView getinputList(ModelAndView mav, tradeGoodsDomain domain) {
-		
+	@RequestMapping(value = "/TradeGoodsManage/input", method = RequestMethod.POST)
+	public ModelAndView postinput(ModelAndView mav, GoodsDomain gdomain, tradeGoodsDomain domain) {
+//		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath*:applicationContext.xml");
+//		tradeGoodsImpl tradeGoodsdao = (tradeGoodsImpl) ctx.getBean("tradeGoodsService");
+//		goodsDaoImpl goodsdao = (goodsDaoImpl) ctx.getBean("goodsService");
+//		tradeGoodsdao.input(domain);
+//		goodsdao.totalAmountUpdate(gdomain);
+		mav.setViewName("/TradeGoodsManage/input");
 		return mav;
 	}
-	
+
+	@RequestMapping(value = "/TradeGoodsManage/inputlist", method = RequestMethod.GET)
+	public ModelAndView getinputList(ModelAndView mav, GoodsDomain gdomain) {
+		mav.setViewName("/TradeGoodsManage/inputlist");
+		return mav;
+	}
+
+//	// 입고, 출고, 반품 처리 및 totalAmount 수정
 	@RequestMapping(value = "/TradeGoodsManage/inputlist", method = RequestMethod.POST)
-	public ModelAndView postinputList(ModelAndView mav, GoodsDomain gdomain ,tradeGoodsDomain domain) {
+	public ModelAndView postinputList(ModelAndView mav, GoodsDomain gdomain, tradeGoodsDomain domain) {
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath*:applicationContext.xml");
 		tradeGoodsImpl tradeGoodsdao = (tradeGoodsImpl) ctx.getBean("tradeGoodsService");
 		goodsDaoImpl goodsdao = (goodsDaoImpl) ctx.getBean("goodsService");
@@ -35,12 +46,11 @@ public class TradeGoodsController {
 		ctx.close();
 		return mav;
 	}
-	// 출고처리
 
 	// tradegoodslist 삭제
-	@RequestMapping(value= "/TradeGoodsManage/tradeGoodsDelete",method = RequestMethod.GET)
-	public ModelAndView TradegoodsDelete(tradeGoodsDomain tradegoodsDomain,ModelAndView mav) {
-		GenericXmlApplicationContext ctx=new GenericXmlApplicationContext("classpath*:applicationContext.xml");
+	@RequestMapping(value = "/TradeGoodsManage/tradeGoodsDelete", method = RequestMethod.GET)
+	public ModelAndView TradegoodsDelete(tradeGoodsDomain tradegoodsDomain, ModelAndView mav) {
+		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath*:applicationContext.xml");
 		tradeGoodsImpl tradeGoodsdao = (tradeGoodsImpl) ctx.getBean("tradeGoodsService");
 		tradeGoodsdao.delete(tradegoodsDomain.getDealNumber());
 		mav.setViewName("/TradeGoodsManage/tradeGoodsDelete");
