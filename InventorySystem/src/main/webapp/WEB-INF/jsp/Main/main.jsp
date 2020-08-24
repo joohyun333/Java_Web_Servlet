@@ -67,8 +67,7 @@
 		<a href="../GoodsManage/goodslist">물품 관리</a>
 		<a href="../TradeGoodsManage/tradelist">물류 관리</a>
 		<a href="../Imformation/goods">정보 조회</a>
-		<a href="../CustomersManage/selList">고객 관리</a>
-		<a href="../Statistics/customers'">통계정보</a>
+		<a href="../CustomersManage/cusMain">고객 관리</a>
 	</div>
   <!-- 메모장 -->
    <form>

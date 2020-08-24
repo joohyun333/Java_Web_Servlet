@@ -8,12 +8,6 @@
 </head>
 <body>
 	<h2>거래처 정보</h2>
-	<% if (session.getAttribute("email") == null){
-	out.println("<a href= '/InventorySystem/Main/main'>로그인이 안되었습니다.</a></br>");
-}else{
-	String email = (String)session.getAttribute("email");
-	out.println(email+"님 반갑습니다.</br></br>");
-} %>
 	<hr />
 	<form method="post">
 		<table>

@@ -20,7 +20,7 @@
       
              <!-- 버튼들 -->
              <button type="submit" id="submit">작성</button>
-             <input type="reset" value="취소" onclick="location.href='/InventorySystem/callback'">
+             <input type="reset" value="취소" onclick="location.href='/InventorySystem/mainCallback'">
         </div>
      </form>       
 </body>

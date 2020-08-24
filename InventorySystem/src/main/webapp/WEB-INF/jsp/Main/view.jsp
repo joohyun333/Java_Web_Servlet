@@ -12,7 +12,7 @@ ${Content}
 
 <button type="button" id="modify" onclick="location.href='modify?num=${num}'">수정</button>
 <button type="button" id="delete" onclick="location.href='delete?num=${num}'">삭제</button>
-<input type="reset"   value="목록으로" onclick="location.href='/InventorySystem/callback'">
+<input type="reset"   value="목록으로" onclick="location.href='/InventorySystem/mainCallback'">
 </body>
 </html>
 

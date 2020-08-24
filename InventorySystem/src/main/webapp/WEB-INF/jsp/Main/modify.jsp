@@ -21,7 +21,7 @@
               
              <!-- 버튼들 -->
              <button type="submit" id="submit">수정</button>
-             <input type="reset" value="취소" onclick="location.href='/callback'">
+             <input type="reset" value="취소" onclick="location.href='/mainCallback'">
         </div>    
      </form>       
 </body>

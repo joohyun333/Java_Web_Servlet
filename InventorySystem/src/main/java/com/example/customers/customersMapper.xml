@@ -42,6 +42,7 @@
 		select c.cusName, tg.dealNumber, tg.date, tg.classification, tg.amount, tg.totalprice
 		from customers c right join tradeGoods tg
 		on c.cusName = tg.cusName
+		where c.cusName=#{c.cusName}
 		order by tg.date desc
 	</select>
 	

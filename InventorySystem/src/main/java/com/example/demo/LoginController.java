@@ -43,10 +43,15 @@ public class LoginController {
 	}
 
 	// 테스트용
-	@RequestMapping(value = "/mainCallback", method = RequestMethod.GET)
-
-	public String mainCallback(Model model) {
-		return "/mainCallback";
+	@RequestMapping(value="/mainCallback", method=RequestMethod.GET)	
+	public ModelAndView mainCallback(ModelAndView mav) {
+		GenericXmlApplicationContext ctx=new GenericXmlApplicationContext("classpath*:applicationContext.xml");
+		noteDaoImpl notedao=(noteDaoImpl)ctx.getBean("noteService");
+		 List<NoteDomain> list=notedao.list();
+		 mav.addObject("NoteList", list);
+		 mav.setViewName("/mainCallback");
+		 ctx.close();
+		 return mav;
 	}
 
 	// 테스트용

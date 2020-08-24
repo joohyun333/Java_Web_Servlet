@@ -7,7 +7,7 @@
 <title>거래처 삭제</title>
 </head>
 <body>
-	<form action="/CustomersManage/cusDeleteStart" method="post">
+	<form action="/CustomersManage/cusDelete" method="post">
 		<input type="hidden" name="cusName" value="${cusName}" />
 		<input type="hidden" name="classification" value="${classification}" />
 		<input type="hidden" name="phoneNo" value="${phoneNo}" />

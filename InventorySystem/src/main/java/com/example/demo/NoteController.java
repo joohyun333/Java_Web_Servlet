@@ -18,19 +18,13 @@ public class NoteController {
     // 메모장게시물 listGET
 	@RequestMapping(value="/Main/main", method=RequestMethod.GET)	
 	public ModelAndView getNoteList(ModelAndView mav) {
-		
 		GenericXmlApplicationContext ctx=new GenericXmlApplicationContext("classpath*:applicationContext.xml");
 		noteDaoImpl notedao=(noteDaoImpl)ctx.getBean("noteService");
-		
 		 List<NoteDomain> list=notedao.list();
-		 
 		 mav.addObject("NoteList", list);
 		 mav.setViewName("/Main/main");
-		 
 		 ctx.close();
-		 
 		 return mav;
-		
 	}
 	
 	

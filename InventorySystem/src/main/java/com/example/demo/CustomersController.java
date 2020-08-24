@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.customers.customersDaoImpl;
 import com.example.domain.CustomersDomain;
 import com.example.domain.tradeGoodsDomain;
-import com.example.tradeGoods.tradeGoodsImpl;
 
 @Controller
 public class CustomersController {
@@ -58,6 +57,7 @@ public class CustomersController {
 
 		mav.addObject("cusInfo", cusdao.cusInfo(cusName));
 		
+		ctx.close();
 		return mav;
 	}
 
@@ -73,8 +73,7 @@ public class CustomersController {
 		customersDaoImpl cusdao = (customersDaoImpl) ctx.getBean("customersService");
 
 		cusdao.cusInsert(cus);
-
-		mav.setViewName("redirect:/CustomersManage/selList");
+		mav.setViewName("redirect:/CustomersManage/cusMain");
 		
 		ctx.close();
 		return mav;
@@ -98,7 +97,7 @@ public class CustomersController {
 		
 		cusdao.cusUpdate(cus);
 
-		mav.setViewName("redirect:/CustomersManage/selList");
+		mav.setViewName("redirect:/CustomersManage/cusMain");
 
 		ctx.close();
 		return mav;
@@ -121,10 +120,10 @@ public class CustomersController {
 	@RequestMapping(value = "/CustomersManage/selRead", method = RequestMethod.GET)
 	public ModelAndView selRead(CustomersDomain cus, ModelAndView mav) {
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath*:applicationContext.xml");
-		//tradeGoodsImpl tradedao = (tradeGoodsImpl) ctx.getBean("tradeGoodsService");
-		//List<tradeGoodsDomain> list = tradedao.tradelist();
-		//mav.addObject("TradeList", list);
+		customersDaoImpl cusdao = (customersDaoImpl) ctx.getBean("customersService");
 		
+		List<tradeGoodsDomain> selRead = cusdao.selRead(cus.getCusName());
+		mav.addObject("selRead", selRead);
 		
 		ctx.close();
 		return mav;
@@ -132,9 +131,12 @@ public class CustomersController {
 	
 	// 구매 거래처 거래 내역
 	@RequestMapping(value = "/CustomersManage/buyRead", method = RequestMethod.GET)
-	public ModelAndView buyRead(ModelAndView mav) {
+	public ModelAndView buyRead(CustomersDomain cus, ModelAndView mav) {
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath*:applicationContext.xml");
+		customersDaoImpl cusdao = (customersDaoImpl) ctx.getBean("customersService");
 		
+		List<tradeGoodsDomain> buyRead = cusdao.buyRead(cus.getCusName());
+		mav.addObject("buyRead", buyRead);
 		ctx.close();
 		return mav;
 	}
