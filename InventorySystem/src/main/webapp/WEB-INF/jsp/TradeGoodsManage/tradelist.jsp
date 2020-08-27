@@ -25,7 +25,8 @@
 		<a href="../GoodsManage/goodslist">물품 관리</a>
 		<a href="../TradeGoodsManage/tradelist">물류 관리</a>
 		<a href="../Imformation/goods">정보 조회</a>
-		<a href="../CustomersManage/cusMain">고객 관리</a>
+		<a href="../CustomersManage/selList">고객 관리</a>
+		<a href="../Statistics/customers'">통계정보</a>
 	</div>
 	
 	<div id="wrap">
@@ -47,7 +48,7 @@
 				<th>총  가  격</th>
 				<th>색       깔</th>
 				<th>브  랜  드</th>
-				<th>제  조  사</th>
+				<th>거  래  처</th>
 				<th>거 래 일 자</th>
 				<th></th>
 			</tr>

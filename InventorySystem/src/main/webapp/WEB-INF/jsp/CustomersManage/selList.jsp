@@ -56,5 +56,11 @@
 			</table>
 		</div>
 	</form>
+	<footer id="footer">
+	<div class="foo_div1"> 
+		<h3>재고관리프로그램</h3> 
+		<p>재고관리프로그램 was created by <span>비트교육 3조</span> / Designed by <span>비트교육 3조</span></p> 
+	</div>
+</footer>
 </body>
 </html>
